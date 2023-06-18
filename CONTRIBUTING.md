@@ -94,7 +94,7 @@ When participating in our project's community, please:
 
 ## License
 
-By contributing to this project, you agree that your contributions will be licensed under the [project's license](link-to-license-file).
+By contributing to this project, you agree that your contributions will be licensed under the [project's license](https://github.com/Giuseppe-Bianc/qbRayTracepm/blob/master/LICENSE).
 
 ---
 
