@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="qbRayTrace">
+      <UniqueIdentifier>{D3D1528E-BF89-94DB-2891-6D3714682FCC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="qbRayTrace\qbLinAlg">
+      <UniqueIdentifier>{CC18689C-387A-45AA-C1E7-8B5C2D487C69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="qbRayTrace\qbLinAlg\TestCode">
+      <UniqueIdentifier>{164D36A3-0208-264F-ABBF-9E99975970DF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\qbRayTrace\camera.hpp">
+      <Filter>qbRayTrace</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbImage.hpp">
+      <Filter>qbRayTrace</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbMatrix33.hpp">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbMatrix44.hpp">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbVector2.hpp">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbVector3.hpp">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbVector4.hpp">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\ray.hpp">
+      <Filter>qbRayTrace</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\scene.hpp">
+      <Filter>qbRayTrace</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\CApp.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\qbRayTrace\camera.cpp">
+      <Filter>qbRayTrace</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbImage.cpp">
+      <Filter>qbRayTrace</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbEIG.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbLSQ.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbLinearSolve.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbPCA.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbQR.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\qbMatrixTest.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\qbMatrix_DeterminantTest.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\ray.cpp">
+      <Filter>qbRayTrace</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\scene.cpp">
+      <Filter>qbRayTrace</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

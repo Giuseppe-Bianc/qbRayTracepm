@@ -1,5 +1,7 @@
 #include "CApp.h"
 
+#include "./qbRayTrace/qbLinAlg/qbVector.h"
+
 // The constructor (default)
 CApp::CApp() : isRunning(true), pWindow(nullptr), pRenderer(nullptr) {}
 
@@ -23,15 +25,27 @@ bool CApp::OnInit() {
             return false;
         }
         m_image.Initialize(w, h, pRenderer);
-        double r;
-        double g;
-        for(int x = 0; x < w; x++) {
-            r = (C_D(x) / w) * 255.0;
-            for(int y = 0; y < h; y++) {
-                g = (C_D(y) / h) * 255.0;
-                m_image.SetPixel(x, y, r, g, 0.0);
-            }
-        }
+
+        // Test the camera class.
+        qbRT::Camera testCamera;
+        testCamera.SetPosition(qbVector<double>(std::vector<double>{0.0, 0.0, 0.0}));
+        testCamera.SetLookAt(qbVector<double>(std::vector<double>{0.0, 2.0, 0.0}));
+        testCamera.SetUp(qbVector<double>(std::vector<double>{0.0, 0.0, 1.0}));
+        testCamera.SetLength(1.0);
+        testCamera.SetHorzSize(1.0);
+        testCamera.SetAspect(1.0);
+        testCamera.UpdateCameraGeometry();
+
+        // Get the screen centre and U,V vectors and display.
+        auto screenCentre = testCamera.GetScreenCentre();
+        auto screenU = testCamera.GetU();
+        auto screenV = testCamera.GetV();
+
+        // And display to the terminal.
+        PrintVector("Camera screen centre:", screenCentre);
+        PrintVector("Camera U vector:", screenU);
+        PrintVector("Camera V vector:", screenV);
+
     } else {
         QBERROR("SDL could not initialize window! SDL_Error: {}", SDL_GetError());
         SDL_Quit();
@@ -88,6 +102,9 @@ void CApp::OnRender() {
     SDL_SetRenderDrawColor(pRenderer, 255, 255, 255, 255);
     SDL_RenderClear(pRenderer);
 
+    // Render the scene.
+    m_scene.Render(m_image);
+
     // Display the image.
     m_image.Display();
 
@@ -107,4 +124,9 @@ void CApp::OnExit() {
         pWindow = nullptr;
     }
     SDL_Quit();
+}
+
+// PRIVATE FUNCTIONS.
+inline void CApp::PrintVector(const std::string &msg, const qbVector<double> &inputVector) const {
+    QBINFO("{} ({}, {}, {})", msg, inputVector.GetElement(0), inputVector.GetElement(1), inputVector.GetElement(2));
 }

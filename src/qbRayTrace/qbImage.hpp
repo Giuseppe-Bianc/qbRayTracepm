@@ -19,6 +19,8 @@ public:
 
     // Function to return the image for display.
     void Display();
+    int GetXSize() const { return m_xSize; }
+    int GetYSize() const { return m_ySize; }
 
 private:
     Uint32 ConvertColor(const double red, const double green, const double blue);

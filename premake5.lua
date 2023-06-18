@@ -30,7 +30,7 @@ project "qbRayTracepm"
    targetdir "bin/%{cfg.buildcfg}"
    staticruntime "off"
 
-   files { "src/**.h", "src/**.cpp" }
+   files { "src/**.hpp", "src/**.cpp" }
 
    includedirs {
       "%{IncludeDir.SDL2}",

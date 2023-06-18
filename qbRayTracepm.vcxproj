@@ -150,12 +150,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\qbRayTrace\camera.hpp" />
+    <ClInclude Include="src\qbRayTrace\ray.hpp" />
+    <ClInclude Include="src\qbRayTrace\scene.hpp" />
     <ClInclude Include="src\CApp.h" />
     <ClInclude Include="src\qbRayTrace\qbImage.hpp" />
     <ClInclude Include="src\Timer.h" />
     <ClInclude Include="src\headers.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\qbRayTrace\camera.cpp" />
+    <ClCompile Include="src\qbRayTrace\ray.cpp" />
+    <ClCompile Include="src\qbRayTrace\scene.cpp" />
     <ClCompile Include="src\CApp.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\qbRayTrace\qbImage.cpp" />
