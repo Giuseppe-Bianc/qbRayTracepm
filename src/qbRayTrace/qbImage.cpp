@@ -1,16 +1,9 @@
 #include "qbImage.hpp"
 #include <fstream>
 
-// The default constructor.
-qbImage::qbImage() {
-    m_xSize = 0;
-    m_ySize = 0;
-    m_pTexture = NULL;
-}
-
 // The destructor.
 qbImage::~qbImage() {
-    if(m_pTexture != NULL)
+    if(m_pTexture != nullptr)
         SDL_DestroyTexture(m_pTexture);
 }
 
@@ -43,10 +36,13 @@ void qbImage::SetPixel(const int x, const int y, const double red, const double 
 void qbImage::Display() {
     // Allocate memory for a pixel buffer.
     std::vector<Uint32> tempPixels(m_xSize * m_ySize, 0);
+    std::size_t index{};
 
+#pragma omp parallel for
     for(int x = 0; x < m_xSize; ++x) {
         for(int y = 0; y < m_ySize; ++y) {
-            tempPixels[(y * m_xSize) + x] = ConvertColor(m_rChannel.at(x).at(y), m_gChannel.at(x).at(y), m_bChannel.at(x).at(y));
+            index = (y * m_xSize) + x;
+            tempPixels[index] = ConvertColor(m_rChannel.at(x).at(y), m_gChannel.at(x).at(y), m_bChannel.at(x).at(y));
         }
     }
 
@@ -77,7 +73,7 @@ void qbImage::InitTexture() {
 #endif
 
     // Delete any previously created texture before we create a new one.
-    if(m_pTexture != NULL)
+    if(m_pTexture != nullptr)
         SDL_DestroyTexture(m_pTexture);
 
     // Create the texture that will store the image.
@@ -87,11 +83,11 @@ void qbImage::InitTexture() {
 }
 
 // Function to convert color to Uint32
-Uint32 qbImage::ConvertColor(const double red, const double green, const double blue) {
+Uint32 qbImage::ConvertColor(const double red, const double green, const double blue) const {
     // Convert colours to unsigned char.
-    unsigned char r = static_cast<unsigned char>(red);
-    unsigned char g = static_cast<unsigned char>(green);
-    unsigned char b = static_cast<unsigned char>(blue);
+    auto r = static_cast<unsigned char>(red);
+    auto g = static_cast<unsigned char>(green);
+    auto b = static_cast<unsigned char>(blue);
 
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
     Uint32 pixelColor = (b << 24) + (g << 16) + (r << 8) + 255;

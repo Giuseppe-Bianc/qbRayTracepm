@@ -6,7 +6,7 @@ public:
     /* Note that we don't actually have to declare a default constructor. As we have no other constructors,
         the compiler would take of this for us. However, we later went on to define another constructor, we would
         also need to manually define the default constructor, so I always think it makes sense to just do it. */
-    qbImage();
+    constexpr explicit qbImage() = default;
 
     // Destructor.
     ~qbImage();
@@ -19,11 +19,11 @@ public:
 
     // Function to return the image for display.
     void Display();
-    int GetXSize() const { return m_xSize; }
-    int GetYSize() const { return m_ySize; }
+    inline int GetXSize() const { return m_xSize; }
+    inline int GetYSize() const { return m_ySize; }
 
 private:
-    Uint32 ConvertColor(const double red, const double green, const double blue);
+    Uint32 ConvertColor(const double red, const double green, const double blue) const;
     void InitTexture();
 
 private:
@@ -33,9 +33,10 @@ private:
     std::vector<std::vector<double>> m_bChannel;
 
     // And store the size of the image.
-    int m_xSize, m_ySize;
+    int m_xSize = 0;
+    int m_ySize = 0;
 
     // SDL2 stuff.
-    SDL_Renderer *m_pRenderer;
-    SDL_Texture *m_pTexture;
+    SDL_Renderer *m_pRenderer{nullptr};
+    SDL_Texture *m_pTexture{nullptr};
 };

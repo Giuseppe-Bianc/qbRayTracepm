@@ -15,7 +15,7 @@ public:
     bool OnInit();
     void OnEvent(SDL_Event *event);
     void OnLoop() const;
-    void OnRender();
+    void OnRender() const;
     void OnExit();
 
 private:

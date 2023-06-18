@@ -8,8 +8,8 @@ namespace qbRT {
         Ray();
         Ray(const qbVector<double> &point1, const qbVector<double> &point2);
 
-        qbVector<double> GetPoint1() const;
-        qbVector<double> GetPoint2() const;
+        inline qbVector<double> GetPoint1() const { return m_point1; }
+        inline qbVector<double> GetPoint2() const { return m_point2; }
 
     public:
         qbVector<double> m_point1{3};
