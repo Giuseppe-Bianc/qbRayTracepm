@@ -1,21 +1,4 @@
 {
-	"todohighlight.keywords": [
-        {
-            "text": "TODO:",
-            "color": "#ff6600",
-            "backgroundColor": "rgba(0,0,0,0)"
-        },
-        {
-            "text": "HACK:",
-            "color": "red",
-            "backgroundColor": "rgba(0,0,0,0)"
-        },
-        {
-            "text": "NOTE:",
-            "color": "green",
-            "backgroundColor": "rgba(0,0,0,0)"
-        }
-    ],
 	"files.associations": {
 		"*.sublime-syntax": "yaml-tmlanguage",
 		"*.sublime-settings": "jsonc",
