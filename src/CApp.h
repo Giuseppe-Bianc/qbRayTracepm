@@ -1,7 +1,7 @@
 #pragma once
 #include "Timer.h"
 #include "headers.h"
-
+#include "qbRayTrace/qbImage.hpp"
 class CApp {
 public:
     CApp();
@@ -14,6 +14,7 @@ public:
     void OnExit();
 
 private:
+    qbImage m_image;
     // SDL2 stuff.
     bool isRunning;
     SDL_Window *pWindow;

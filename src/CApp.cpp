@@ -21,7 +21,14 @@ bool CApp::OnInit() {
             SDL_Quit();
             return false;
         }
-
+        m_image.Initialize(w, h, pRenderer);
+        for(int x = 0; x < w; x++) {
+            double r = (C_D(x) / w) * 255.0;
+            for(int y = 0; y < h; y++) {
+                double g = (C_D(y) / h) * 255.0;
+                m_image.SetPixel(x, y, r, g, 0.0);
+            }
+        }
     } else {
         QBERROR("SDL could not initialize window! SDL_Error: {}", SDL_GetError());
         SDL_Quit();
@@ -78,7 +85,7 @@ void CApp::OnRender() {
     SDL_RenderClear(pRenderer);
 
     // Display the image.
-    // m_image.Display();
+    m_image.Display();
 
     // Show the result.
     SDL_RenderPresent(pRenderer);

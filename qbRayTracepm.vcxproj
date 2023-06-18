@@ -151,12 +151,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\CApp.h" />
+    <ClInclude Include="src\qbRayTrace\qbImage.hpp" />
     <ClInclude Include="src\Timer.h" />
     <ClInclude Include="src\headers.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CApp.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbImage.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
