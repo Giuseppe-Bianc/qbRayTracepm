@@ -1,11 +1,7 @@
 #include "CApp.h"
 
 // The constructor (default)
-CApp::CApp() {
-    isRunning = true;
-    pWindow = nullptr;
-    pRenderer = nullptr;
-}
+CApp::CApp() : isRunning(true), pWindow(nullptr), pRenderer(nullptr) {}
 
 bool CApp::OnInit() {
     Timer timer{"inizializzazione"};
