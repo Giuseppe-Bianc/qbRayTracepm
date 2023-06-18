@@ -3,6 +3,7 @@
 Thank you for considering contributing to our project! We appreciate your efforts and welcome your contributions. To maintain a healthy and collaborative environment, please follow these guidelines when contributing to our project.
 
 ## Table of Contents
+
 1. [Getting Started](#getting-started)
 2. [How Can You Contribute](#how-can-you-contribute)
     - [Bug Reports](#bug-reports)
