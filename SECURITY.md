@@ -4,7 +4,7 @@
 
 If you believe you have found a security vulnerability in this project, please help us by reporting it to us through one of the following methods:
 
-- Email: [security@example.com](mailto:security@example.com)
+- Email: [gbianconi6@gmail.com](mailto:gbianconi6@gmail.com)
 - Issue Tracker: [issues](https://github.com/Giuseppe-Bianc/qbRayTracepm/issues)
 
 Please provide us with detailed information about the vulnerability you discovered, including steps to reproduce and any potential impact.
