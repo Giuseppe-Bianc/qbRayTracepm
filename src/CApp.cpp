@@ -74,7 +74,7 @@ void CApp::OnEvent(SDL_Event *event) {
     }
 }
 
-void CApp::OnLoop() {}
+void CApp::OnLoop() const {}
 
 void CApp::OnRender() {
     // Set the background colour to white.
