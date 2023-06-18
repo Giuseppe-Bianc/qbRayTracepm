@@ -63,7 +63,7 @@
 #define C_F(x) static_cast<float>(x)
 #define POW2(p) (p) * (p)
 
-#define VKSYSPAUSE()                                                                                                             \
+#define QBSYSPAUSE()                                                                                                             \
     QBINFO("Press enter to exit...");                                                                                            \
     std::cin.ignore();
 
@@ -78,7 +78,7 @@ static inline constexpr long double twoPi = 2 * pi;
 // static inline constexpr double aspect_ratio = 16.0 / 9.0;
 static inline constexpr double aspect_ratioW = 16.0;
 static inline constexpr double aspect_ratioH = 9.0;
-static inline constexpr int imageF = 70;
+static inline constexpr int imageF = 80;
 static inline constexpr int w = C_I(aspect_ratioW * imageF);
 static inline constexpr int h = C_I(aspect_ratioH * imageF);
 static inline constexpr std::size_t ST_w = C_ST(w);

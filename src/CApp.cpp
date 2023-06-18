@@ -13,6 +13,7 @@ bool CApp::OnInit() {
     pWindow = SDL_CreateWindow("qbRayTracer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN);
 
     if(pWindow != nullptr) {
+        QBINFO("creazione SDL window di dimensioni(w: {}, h: {})", w, h);
         // Initialise the renderer.
         pRenderer = SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
         if(pRenderer == nullptr) {
@@ -22,10 +23,12 @@ bool CApp::OnInit() {
             return false;
         }
         m_image.Initialize(w, h, pRenderer);
+        double r;
+        double g;
         for(int x = 0; x < w; x++) {
-            double r = (C_D(x) / w) * 255.0;
+            r = (C_D(x) / w) * 255.0;
             for(int y = 0; y < h; y++) {
-                double g = (C_D(y) / h) * 255.0;
+                g = (C_D(y) / h) * 255.0;
                 m_image.SetPixel(x, y, r, g, 0.0);
             }
         }
@@ -55,6 +58,7 @@ int CApp::OnExecute() {
     }
 
     OnExit();
+    QBSYSPAUSE()
     return 0;
 }
 
@@ -92,6 +96,7 @@ void CApp::OnRender() {
 }
 
 void CApp::OnExit() {
+    Timer timer{"OnExit"};
     // Tidy up SDL2 stuff.
     if(pRenderer != nullptr) {
         SDL_DestroyRenderer(pRenderer);
