@@ -361,7 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/bin-int/Debug-windows-x86_64/qbRayTracepm
+/bin/
+/bin-int/
 /external/glm/doc
 /external/glm/cmake/glm
 /external/glm/.appveyor.yml
@@ -380,3 +381,5 @@ FodyWeavers.xsd
 /external/SDL/README-SDL.txt
 /external/SDL/README.txt
 /external/SDL/WhatsNew.txt
+/qbRayTracepm.sln
+/qbRayTracepm.vcxproj
