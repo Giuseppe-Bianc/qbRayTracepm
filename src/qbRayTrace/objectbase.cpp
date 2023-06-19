@@ -1,6 +1,6 @@
 #include "objectbase.hpp"
 
-constexpr double EPSILON = 1e-22f;
+constexpr double EPSILON = 1e-21;
 
 // Function to test for intersections.
 bool qbRT::ObjectBase::TestIntersection(const Ray &castRay, qbVector<double> &intPoint, qbVector<double> &localNormal,

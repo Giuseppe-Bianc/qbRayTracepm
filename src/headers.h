@@ -74,6 +74,7 @@ static inline constexpr double NO_COLOR = 0.0;
 static inline constexpr long NANOD = std::nano::den;
 static inline constexpr long double pi = std::numbers::pi_v<long double>;
 static inline constexpr long double twoPi = 2 * pi;
+static inline constexpr long double halfPi = pi / 2;
 // Dimensioni della finestra
 // static inline constexpr double aspect_ratio = 16.0 / 9.0;
 static inline constexpr double aspect_ratioW = 16.0;

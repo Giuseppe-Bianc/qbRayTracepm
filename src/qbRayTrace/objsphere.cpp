@@ -1,4 +1,5 @@
 #include "objsphere.hpp"
+
 // The default constructor.
 qbRT::ObjSphere::ObjSphere() {}
 
@@ -42,6 +43,10 @@ bool qbRT::ObjSphere::TestIntersection(const qbRT::Ray &castRay, qbVector<double
             } else {
                 intPoint = castRay.m_point1 + (vhat * t2);
             }
+
+            // Compute the local normal (easy for a sphere at the origin!).
+            localNormal = intPoint;
+            localNormal.Normalize();
         }
 
         return true;

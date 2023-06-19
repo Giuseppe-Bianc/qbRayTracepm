@@ -3,6 +3,7 @@
 #include "../headers.h"
 #include "camera.hpp"
 #include "objsphere.hpp"
+#include "pointlight.hpp"
 #include "qbImage.hpp"
 
 namespace qbRT {
@@ -21,7 +22,10 @@ namespace qbRT {
         // The camera that we will use.
         qbRT::Camera m_camera;
 
-        // A unit sphere on the origin, for testing.
-        qbRT::ObjSphere m_testSphere;
+        // The list of objects in the scene.
+        std::vector<std::shared_ptr<qbRT::ObjectBase>> m_objectList;
+
+        // The list of lights in the scene.
+        std::vector<std::shared_ptr<qbRT::LightBase>> m_lightList;
     };
 }  // namespace qbRT
