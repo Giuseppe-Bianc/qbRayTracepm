@@ -6,7 +6,6 @@
 CApp::CApp() : isRunning(true), pWindow(nullptr), pRenderer(nullptr) {}
 
 bool CApp::OnInit() {
-    Timer timer{"inizializzazione"};
     if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
         QBERROR("SDL could not initialize! SDL_Error: {}", SDL_GetError());
         return false;
