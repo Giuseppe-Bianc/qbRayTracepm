@@ -1,11 +1,5 @@
 #include "objsphere.hpp"
 
-// The default constructor.
-qbRT::ObjSphere::ObjSphere() {}
-
-// The destructor.
-qbRT::ObjSphere::~ObjSphere() {}
-
 // Function to test for intersections.
 bool qbRT::ObjSphere::TestIntersection(const qbRT::Ray &castRay, qbVector<double> &intPoint, qbVector<double> &localNormal,
                                        qbVector<double> &localColor) {

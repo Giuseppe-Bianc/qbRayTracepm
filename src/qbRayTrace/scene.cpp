@@ -11,9 +11,9 @@ qbRT::Scene::Scene() {
     m_camera.UpdateCameraGeometry();
 
     // Construct a test sphere.
-    m_objectList.push_back(std::make_shared<qbRT::ObjSphere>(qbRT::ObjSphere()));
-    m_objectList.push_back(std::make_shared<qbRT::ObjSphere>(qbRT::ObjSphere()));
-    m_objectList.push_back(std::make_shared<qbRT::ObjSphere>(qbRT::ObjSphere()));
+    m_objectList.push_back(std::make_shared<qbRT::ObjSphere>());
+    m_objectList.push_back(std::make_shared<qbRT::ObjSphere>());
+    m_objectList.push_back(std::make_shared<qbRT::ObjSphere>());
 
     // Modify the spheres.
     qbRT::GTform testMatrix1, testMatrix2, testMatrix3;
@@ -45,76 +45,78 @@ qbRT::Scene::Scene() {
 
 // Function to perform the rendering.
 bool qbRT::Scene::Render(qbImage &outputImage) {
-    Timer Timer{"Render"};
-    // Get the dimensions of the output image.
-    auto xSize = outputImage.GetXSize();
-    auto ySize = outputImage.GetYSize();
-    auto halfXSise = static_cast<double>(xSize) / 2.0;
-    auto halfYSise = static_cast<double>(ySize) / 2.0;
-
-    // Loop over each pixel in our image.
-    qbRT::Ray cameraRay;
-    qbVector<double> intPoint{3};
-    qbVector<double> localNormal{3};
-    qbVector<double> localColor{3};
-    double xFact = 1.0 / halfXSise;
-    double yFact = 1.0 / halfYSise;
     double minDist = 1e6;
     double maxDist = 0.0;
-    double normX = 0;
-    double normY = 0;
-    bool validInt{};
-#pragma omp parallel for
-    for(int x = 0; x < xSize; ++x) {
-        normX = (static_cast<double>(x) * xFact) - 1.0;
-        for(int y = 0; y < ySize; ++y) {
-            // Normalize the x and y coordinates.
-            normY = (static_cast<double>(y) * yFact) - 1.0;
+    {
+        Timer Timer{"Render"};
+        // Get the dimensions of the output image.
+        auto xSize = outputImage.GetXSize();
+        auto ySize = outputImage.GetYSize();
+        auto halfXSise = static_cast<double>(xSize) / 2.0;
+        auto halfYSise = static_cast<double>(ySize) / 2.0;
 
-            // Generate the ray for this pixel.
-            m_camera.GenerateRay(C_F(normX), C_F(normY), cameraRay);
-            // Test for intersections with all objects in the scene.
-            for(auto currentObject : m_objectList) {
-                validInt = currentObject->TestIntersection(cameraRay, intPoint, localNormal, localColor);
+        // Loop over each pixel in our image.
+        qbRT::Ray cameraRay;
+        qbVector<double> intPoint{3};
+        qbVector<double> localNormal{3};
+        qbVector<double> localColor{3};
+        double xFact = 1.0 / halfXSise;
+        double yFact = 1.0 / halfYSise;
+        double normX = 0;
+        double normY = 0;
+        bool validInt{};
+#pragma omp parallel for collapse(2)
+        for(int x = 0; x < xSize; ++x) {
+            normX = (static_cast<double>(x) * xFact) - 1.0;
+            for(int y = 0; y < ySize; ++y) {
+                // Normalize the x and y coordinates.
+                normY = (static_cast<double>(y) * yFact) - 1.0;
 
-                // If we have a valid intersection, change pixel color to red.
-                if(validInt) {
-                    // Compute intensity of illumination.
-                    double intensity;
-                    qbVector<double> color{3};
-                    bool validIllum = false;
-                    for(auto currentLight : m_lightList) {
-                        validIllum = currentLight->ComputeIllumination(intPoint, localNormal, m_objectList, currentObject, color,
-                                                                       intensity);
-                    }
+                // Generate the ray for this pixel.
+                m_camera.GenerateRay(C_F(normX), C_F(normY), cameraRay);
+                // Test for intersections with all objects in the scene.
+                for(auto currentObject : m_objectList) {
+                    validInt = currentObject->TestIntersection(cameraRay, intPoint, localNormal, localColor);
 
-                    // Compute the distance between the camera and the point of intersection.
-                    double dist = (intPoint - cameraRay.m_point1).norm();
-                    if(dist > maxDist)
-                        maxDist = dist;
+                    // If we have a valid intersection, change pixel color to red.
+                    if(validInt) {
+                        // Compute intensity of illumination.
+                        double intensity;
+                        qbVector<double> color{3};
+                        bool validIllum = false;
+                        for(auto currentLight : m_lightList) {
+                            validIllum = currentLight->ComputeIllumination(intPoint, localNormal, m_objectList, currentObject,
+                                                                           color, intensity);
+                        }
 
-                    if(dist < minDist)
-                        minDist = dist;
+                        // Compute the distance between the camera and the point of intersection.
+                        double dist = (intPoint - cameraRay.m_point1).norm();
+                        if(dist > maxDist)
+                            maxDist = dist;
 
-                    // outputImage.SetPixel(x, y, 255.0 - ((dist - 9.0) / 0.94605) * 255.0, 0.0, 0.0);
-                    if(validIllum) {
-                        // outputImage.SetPixel(x, y, 255.0 * intensity, 0.0, 0.0);
-                        outputImage.SetPixel(x, y, localColor.GetElement(0) * intensity, localColor.GetElement(1) * intensity,
-                                             localColor.GetElement(2) * intensity);
+                        if(dist < minDist)
+                            minDist = dist;
+
+                        // outputImage.SetPixel(x, y, 255.0 - ((dist - 9.0) / 0.94605) * 255.0, 0.0, 0.0);
+                        if(validIllum) {
+                            // outputImage.SetPixel(x, y, 255.0 * intensity, 0.0, 0.0);
+                            outputImage.SetPixel(x, y, localColor.GetElement(0) * intensity, localColor.GetElement(1) * intensity,
+                                                 localColor.GetElement(2) * intensity);
+                        } else {
+                            // Leave this pixel unchanged.
+                            // outputImage.SetPixel(x, y, 0.0, 0.0, 0.0);
+                        }
                     } else {
                         // Leave this pixel unchanged.
                         // outputImage.SetPixel(x, y, 0.0, 0.0, 0.0);
                     }
-                } else {
-                    // Leave this pixel unchanged.
-                    // outputImage.SetPixel(x, y, 0.0, 0.0, 0.0);
                 }
             }
         }
     }
 
     QBINFO("Minimum distance: {}", minDist);
-    QBINFO("Maximum distance: {:.12f}", maxDist);
+    QBINFO("Maximum distance: {}", maxDist);
 
     return true;
 }
