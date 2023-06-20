@@ -15,18 +15,15 @@
 #include <cstring>
 #include <ctime>
 #include <execution>
-#include <format>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <iterator>
 #include <limits>
 #include <memory>
-#include <numbers>
 #include <omp.h>
 #include <optional>
 #include <random>
-#include <ranges>
 #include <set>
 #include <spdlog/cfg/env.h>
 #include <spdlog/fmt/ostr.h>
@@ -66,13 +63,13 @@
 #define QBSYSPAUSE()                                                                                                             \
     QBINFO("Press enter to exit...");                                                                                            \
     std::cin.ignore();
-
-using ddvector = std::vector<std::vector<double>>;
-static inline constexpr bool FWDTF = true;
-static inline constexpr bool BCKTF = false;
+namespace qbRT {
+    static inline constexpr bool FWDTFORM = true;
+    static inline constexpr bool BCKTFORM = false;
+}  // namespace qbRT
 static inline constexpr double NO_COLOR = 0.0;
 static inline constexpr long NANOD = std::nano::den;
-static inline constexpr long double pi = std::numbers::pi_v<long double>;
+static inline constexpr long double pi = 3.1415926535897932384626433832795028841971;
 static inline constexpr long double twoPi = 2 * pi;
 static inline constexpr long double halfPi = pi / 2;
 // Dimensioni della finestra

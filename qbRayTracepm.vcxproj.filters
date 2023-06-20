@@ -15,8 +15,38 @@
     <ClInclude Include="src\qbRayTrace\camera.hpp">
       <Filter>qbRayTrace</Filter>
     </ClInclude>
+    <ClInclude Include="src\qbRayTrace\gtfm.hpp">
+      <Filter>qbRayTrace</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\lightbase.hpp">
+      <Filter>qbRayTrace</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\objectbase.hpp">
+      <Filter>qbRayTrace</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\objsphere.hpp">
+      <Filter>qbRayTrace</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\pointlight.hpp">
+      <Filter>qbRayTrace</Filter>
+    </ClInclude>
     <ClInclude Include="src\qbRayTrace\qbImage.hpp">
       <Filter>qbRayTrace</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbMatrix33.hpp">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbMatrix44.hpp">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbVector2.hpp">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbVector3.hpp">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbVector4.hpp">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
     </ClInclude>
     <ClInclude Include="src\qbRayTrace\ray.hpp">
       <Filter>qbRayTrace</Filter>
@@ -24,13 +54,6 @@
     <ClInclude Include="src\qbRayTrace\scene.hpp">
       <Filter>qbRayTrace</Filter>
     </ClInclude>
-    <ClInclude Include="src\qbRayTrace\objectbase.hpp" />
-    <ClInclude Include="src\qbRayTrace\objsphere.hpp" />
-    <ClInclude Include="src\CApp.h" />
-    <ClInclude Include="src\Timer.h" />
-    <ClInclude Include="src\headers.h" />
-    <ClInclude Include="src\qbRayTrace\lightbase.hpp" />
-    <ClInclude Include="src\qbRayTrace\pointlight.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CApp.cpp" />
@@ -38,8 +61,44 @@
     <ClCompile Include="src\qbRayTrace\camera.cpp">
       <Filter>qbRayTrace</Filter>
     </ClCompile>
+    <ClCompile Include="src\qbRayTrace\gtfm.cpp">
+      <Filter>qbRayTrace</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\lightbase.cpp">
+      <Filter>qbRayTrace</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\objectbase.cpp">
+      <Filter>qbRayTrace</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\objsphere.cpp">
+      <Filter>qbRayTrace</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\pointlight.cpp">
+      <Filter>qbRayTrace</Filter>
+    </ClCompile>
     <ClCompile Include="src\qbRayTrace\qbImage.cpp">
       <Filter>qbRayTrace</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbEIG.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbLSQ.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbLinearSolve.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbPCA.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbQR.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\qbMatrixTest.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\qbMatrix_DeterminantTest.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
     </ClCompile>
     <ClCompile Include="src\qbRayTrace\ray.cpp">
       <Filter>qbRayTrace</Filter>
@@ -47,9 +106,5 @@
     <ClCompile Include="src\qbRayTrace\scene.cpp">
       <Filter>qbRayTrace</Filter>
     </ClCompile>
-    <ClCompile Include="src\qbRayTrace\objectbase.cpp" />
-    <ClCompile Include="src\qbRayTrace\objsphere.cpp" />
-    <ClCompile Include="src\qbRayTrace\lightbase.cpp" />
-    <ClCompile Include="src\qbRayTrace\pointlight.cpp" />
   </ItemGroup>
 </Project>

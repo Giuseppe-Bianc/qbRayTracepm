@@ -1,5 +1,6 @@
 #pragma once
 #include "../headers.h"
+#include "gtfm.hpp"
 #include "objectbase.hpp"
 
 namespace qbRT {
@@ -14,7 +15,7 @@ namespace qbRT {
 
         // Override the function to test for intersections.
         virtual bool TestIntersection(const qbRT::Ray &castRay, qbVector<double> &intPoint, qbVector<double> &localNormal,
-                                      qbVector<double> &localColor);
+                                      qbVector<double> &localColor) override;
 
     private:
     };

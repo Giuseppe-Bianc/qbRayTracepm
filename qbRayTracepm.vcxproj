@@ -86,7 +86,7 @@
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
@@ -110,7 +110,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
@@ -138,7 +138,7 @@
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
@@ -151,28 +151,27 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\qbRayTrace\camera.hpp" />
+    <ClInclude Include="src\qbRayTrace\gtfm.hpp" />
     <ClInclude Include="src\qbRayTrace\lightbase.hpp" />
     <ClInclude Include="src\qbRayTrace\objectbase.hpp" />
     <ClInclude Include="src\qbRayTrace\objsphere.hpp" />
     <ClInclude Include="src\qbRayTrace\pointlight.hpp" />
+    <ClInclude Include="src\qbRayTrace\qbImage.hpp" />
     <ClInclude Include="src\qbRayTrace\ray.hpp" />
     <ClInclude Include="src\qbRayTrace\scene.hpp" />
-    <ClInclude Include="src\CApp.h" />
-    <ClInclude Include="src\qbRayTrace\qbImage.hpp" />
-    <ClInclude Include="src\Timer.h" />
-    <ClInclude Include="src\headers.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\CApp.cpp" />
+    <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\qbRayTrace\camera.cpp" />
+    <ClCompile Include="src\qbRayTrace\gtfm.cpp" />
     <ClCompile Include="src\qbRayTrace\lightbase.cpp" />
     <ClCompile Include="src\qbRayTrace\objectbase.cpp" />
     <ClCompile Include="src\qbRayTrace\objsphere.cpp" />
     <ClCompile Include="src\qbRayTrace\pointlight.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbImage.cpp" />
     <ClCompile Include="src\qbRayTrace\ray.cpp" />
     <ClCompile Include="src\qbRayTrace\scene.cpp" />
-    <ClCompile Include="src\CApp.cpp" />
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\qbRayTrace\qbImage.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
