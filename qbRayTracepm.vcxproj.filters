@@ -24,6 +24,9 @@
     <ClInclude Include="src\qbRayTrace\objectbase.hpp">
       <Filter>qbRayTrace</Filter>
     </ClInclude>
+    <ClInclude Include="src\qbRayTrace\objplane.hpp">
+      <Filter>qbRayTrace</Filter>
+    </ClInclude>
     <ClInclude Include="src\qbRayTrace\objsphere.hpp">
       <Filter>qbRayTrace</Filter>
     </ClInclude>
@@ -68,6 +71,9 @@
       <Filter>qbRayTrace</Filter>
     </ClCompile>
     <ClCompile Include="src\qbRayTrace\objectbase.cpp">
+      <Filter>qbRayTrace</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\objplane.cpp">
       <Filter>qbRayTrace</Filter>
     </ClCompile>
     <ClCompile Include="src\qbRayTrace\objsphere.cpp">

@@ -2,9 +2,6 @@
 
 #include "./qbRayTrace/qbLinAlg/qbVector.h"
 
-// The constructor (default)
-CApp::CApp() : isRunning(true), pWindow(nullptr), pRenderer(nullptr) {}
-
 bool CApp::OnInit() {
     if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
         QBERROR("SDL could not initialize! SDL_Error: {}", SDL_GetError());
@@ -68,7 +65,7 @@ int CApp::OnExecute() {
     return 0;
 }
 
-void CApp::OnEvent(SDL_Event *event) {
+void CApp::OnEvent(const SDL_Event *event) {
     switch(event->type) {
     case SDL_QUIT:
         isRunning = false;
@@ -87,7 +84,9 @@ void CApp::OnEvent(SDL_Event *event) {
     }
 }
 
-void CApp::OnLoop() const {}
+void CApp::OnLoop() const {
+    // empty
+}
 
 void CApp::OnRender() const {
     // Set the background color to white.

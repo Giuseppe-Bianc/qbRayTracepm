@@ -9,11 +9,11 @@
 
 class CApp {
 public:
-    CApp();
+    CApp() = default;
 
     int OnExecute();
     bool OnInit();
-    void OnEvent(SDL_Event *event);
+    void OnEvent(const SDL_Event *event);
     void OnLoop() const;
     void OnRender() const;
     void OnExit();
@@ -29,7 +29,7 @@ private:
     qbRT::Scene m_scene;
 
     // SDL2 stuff.
-    bool isRunning;
-    SDL_Window *pWindow;
-    SDL_Renderer *pRenderer;
+    bool isRunning = true;
+    SDL_Window *pWindow{nullptr};
+    SDL_Renderer *pRenderer{nullptr};
 };

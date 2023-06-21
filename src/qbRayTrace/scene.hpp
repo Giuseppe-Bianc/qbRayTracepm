@@ -2,6 +2,7 @@
 #include "../Timer.h"
 #include "../headers.h"
 #include "camera.hpp"
+#include "objplane.hpp"
 #include "objsphere.hpp"
 #include "pointlight.hpp"
 #include "qbImage.hpp"
@@ -13,7 +14,7 @@ namespace qbRT {
         Scene();
 
         // Function to perform the rendering.
-        bool Render(qbImage &outputImage);
+        bool Render(qbImage &outputImage) const;
 
         // Private functions.
     private:

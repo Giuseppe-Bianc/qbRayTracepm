@@ -156,6 +156,7 @@
     <ClInclude Include="src\qbRayTrace\gtfm.hpp" />
     <ClInclude Include="src\qbRayTrace\lightbase.hpp" />
     <ClInclude Include="src\qbRayTrace\objectbase.hpp" />
+    <ClInclude Include="src\qbRayTrace\objplane.hpp" />
     <ClInclude Include="src\qbRayTrace\objsphere.hpp" />
     <ClInclude Include="src\qbRayTrace\pointlight.hpp" />
     <ClInclude Include="src\qbRayTrace\qbImage.hpp" />
@@ -170,6 +171,7 @@
     <ClCompile Include="src\qbRayTrace\gtfm.cpp" />
     <ClCompile Include="src\qbRayTrace\lightbase.cpp" />
     <ClCompile Include="src\qbRayTrace\objectbase.cpp" />
+    <ClCompile Include="src\qbRayTrace\objplane.cpp" />
     <ClCompile Include="src\qbRayTrace\objsphere.cpp" />
     <ClCompile Include="src\qbRayTrace\pointlight.cpp" />
     <ClCompile Include="src\qbRayTrace\qbImage.cpp" />
