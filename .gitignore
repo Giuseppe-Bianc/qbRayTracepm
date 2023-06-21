@@ -381,3 +381,17 @@ FodyWeavers.xsd
 /external/SDL/README-SDL.txt
 /external/SDL/README.txt
 /external/SDL/WhatsNew.txt
+/external/fmt/doc/bootstrap
+/external/fmt/doc/html
+/external/fmt/doc/_static
+/external/fmt/doc
+/external/fmt/support/cmake
+/external/fmt/support/rtd
+/external/fmt/test
+/external/fmt/support
+/external/fmt/.clang-format
+/external/fmt/ChangeLog.rst
+/external/fmt/CMakeLists.txt
+/external/fmt/CONTRIBUTING.md
+/external/fmt/LICENSE.rst
+/external/fmt/README.rst
