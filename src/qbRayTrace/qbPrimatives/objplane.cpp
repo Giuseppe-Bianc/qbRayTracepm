@@ -1,36 +1,4 @@
-/* ***********************************************************
-    objectplane.cpp
-
-    The ObjPlane class implementation - A class derived from
-    ObjectBase to implement finite planes.
-
-    This file forms part of the qbRayTrace project as described
-    in the series of videos on the QuantitativeBytes YouTube
-    channel.
-
-    This code corresponds specifically to Episode 6 of the series,
-    which may be found here:
-    https://youtu.be/9K9ZYq6KgFY
-
-    The whole series may be found on the QuantitativeBytes
-    YouTube channel at:
-    www.youtube.com/c/QuantitativeBytes
-
-    GPLv3 LICENSE
-    Copyright (c) 2021 Michael Bennett
-
-***********************************************************/
-
-// objplane.cpp
-
 #include "objplane.hpp"
-#include <cmath>
-
-// The default constructor.
-qbRT::ObjPlane::ObjPlane() {}
-
-// The destructor.
-qbRT::ObjPlane::~ObjPlane() {}
 
 // The function to test for intersections.
 bool qbRT::ObjPlane::TestIntersection(const qbRT::Ray &castRay, qbVector<double> &intPoint, qbVector<double> &localNormal,

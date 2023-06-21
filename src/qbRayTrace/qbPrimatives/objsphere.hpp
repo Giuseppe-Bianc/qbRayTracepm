@@ -1,15 +1,17 @@
 #pragma once
-#include "gtfm.hpp"
+#include "../../headers.h"
+#include "../gtfm.hpp"
 #include "objectbase.hpp"
 
 namespace qbRT {
-    class ObjPlane : public ObjectBase {
+    class ObjSphere : public ObjectBase {
     public:
-        // Default constructor.
-        ObjPlane();
+        /* The default constructor.
+            Note that this will define a unit sphere at the origin. */
+        ObjSphere() = default;
 
         // Override the destructor.
-        virtual ~ObjPlane() override;
+        virtual ~ObjSphere() override = default;
 
         // Override the function to test for intersections.
         virtual bool TestIntersection(const qbRT::Ray &castRay, qbVector<double> &intPoint, qbVector<double> &localNormal,

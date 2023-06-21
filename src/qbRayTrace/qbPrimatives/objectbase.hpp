@@ -1,10 +1,12 @@
 #pragma once
-#include "../headers.h"
-#include "./qbLinAlg/qbVector.h"
-#include "gtfm.hpp"
-#include "ray.hpp"
+#include "../../headers.h"
+#include "../gtfm.hpp"
+#include "../qbLinAlg/qbVector.h"
+#include "../ray.hpp"
 
 namespace qbRT {
+    class MaterialBase;
+
     class ObjectBase {
     public:
         // Constructor and destructor.

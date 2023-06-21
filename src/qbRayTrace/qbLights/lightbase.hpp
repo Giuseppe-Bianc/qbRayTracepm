@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../headers.h"
-#include "./qbLinAlg/qbVector.h"
-#include "objectbase.hpp"
-#include "ray.hpp"
+#include "../../headers.h"
+#include "../qbLinAlg/qbVector.h"
+#include "../qbPrimatives/objectbase.hpp"
+#include "../ray.hpp"
 
 namespace qbRT {
     class LightBase {
