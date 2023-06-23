@@ -2,6 +2,8 @@
 #include "../Timer.h"
 #include "../headers.h"
 #include "./qbLights/pointlight.hpp"
+#include "./qbPrimatives/cone.hpp"
+#include "./qbPrimatives/cylinder.hpp"
 #include "./qbPrimatives/objplane.hpp"
 #include "./qbPrimatives/objsphere.hpp"
 #include "camera.hpp"

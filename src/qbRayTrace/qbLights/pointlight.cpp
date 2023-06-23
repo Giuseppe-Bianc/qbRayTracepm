@@ -13,6 +13,7 @@ bool qbRT::PointLight::ComputeIllumination(const qbVector<double> &intPoint, con
                                            double &intensity) {
     // Construct a vector pointing from the intersection point to the light.
     qbVector<double> lightDir = (m_location - intPoint).Normalized();
+    double lightDist = (m_location - intPoint).norm();
 
     // Compute a starting point.
     qbVector<double> startPoint = intPoint;
@@ -29,6 +30,11 @@ bool qbRT::PointLight::ComputeIllumination(const qbVector<double> &intPoint, con
     for(const auto &sceneObject : objectList) {
         if(sceneObject != currentObject) {
             validInt = sceneObject->TestIntersection(lightRay, poi, poiNormal, poiColor);
+            if(validInt) {
+                double dist = (poi - startPoint).norm();
+                if(dist > lightDist)
+                    validInt = false;
+            }
         }
 
         /* If we have an intersection, then there is no point checking further

@@ -4,7 +4,6 @@
 #include "../qbLinAlg/qbVector.h"
 #include "../qbPrimatives/objectbase.hpp"
 #include "../ray.hpp"
-#include <memory>
 
 namespace qbRT {
     class MaterialBase {

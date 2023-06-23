@@ -39,42 +39,6 @@
     <ClInclude Include="src\qbRayTrace\qbLights\pointlight.hpp">
       <Filter>qbRayTrace\qbLights</Filter>
     </ClInclude>
-    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbEIG.h">
-      <Filter>qbRayTrace\qbLinAlg</Filter>
-    </ClInclude>
-    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbLSQ.h">
-      <Filter>qbRayTrace\qbLinAlg</Filter>
-    </ClInclude>
-    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbLinSolve.h">
-      <Filter>qbRayTrace\qbLinAlg</Filter>
-    </ClInclude>
-    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbMatrix.h">
-      <Filter>qbRayTrace\qbLinAlg</Filter>
-    </ClInclude>
-    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbMatrix33.hpp">
-      <Filter>qbRayTrace\qbLinAlg</Filter>
-    </ClInclude>
-    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbMatrix44.hpp">
-      <Filter>qbRayTrace\qbLinAlg</Filter>
-    </ClInclude>
-    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbPCA.h">
-      <Filter>qbRayTrace\qbLinAlg</Filter>
-    </ClInclude>
-    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbQR.h">
-      <Filter>qbRayTrace\qbLinAlg</Filter>
-    </ClInclude>
-    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbVector.h">
-      <Filter>qbRayTrace\qbLinAlg</Filter>
-    </ClInclude>
-    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbVector2.hpp">
-      <Filter>qbRayTrace\qbLinAlg</Filter>
-    </ClInclude>
-    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbVector3.hpp">
-      <Filter>qbRayTrace\qbLinAlg</Filter>
-    </ClInclude>
-    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbVector4.hpp">
-      <Filter>qbRayTrace\qbLinAlg</Filter>
-    </ClInclude>
     <ClInclude Include="src\qbRayTrace\qbMaterials\materialbase.hpp">
       <Filter>qbRayTrace\qbMaterials</Filter>
     </ClInclude>
@@ -96,6 +60,8 @@
     <ClInclude Include="src\qbRayTrace\scene.hpp">
       <Filter>qbRayTrace</Filter>
     </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbPrimatives\cone.hpp" />
+    <ClInclude Include="src\qbRayTrace\qbPrimatives\cylinder.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CApp.cpp" />
@@ -114,27 +80,6 @@
     </ClCompile>
     <ClCompile Include="src\qbRayTrace\qbLights\pointlight.cpp">
       <Filter>qbRayTrace\qbLights</Filter>
-    </ClCompile>
-    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbEIG.cpp">
-      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
-    </ClCompile>
-    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbLSQ.cpp">
-      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
-    </ClCompile>
-    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbLinearSolve.cpp">
-      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
-    </ClCompile>
-    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbPCA.cpp">
-      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
-    </ClCompile>
-    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbQR.cpp">
-      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
-    </ClCompile>
-    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\qbMatrixTest.cpp">
-      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
-    </ClCompile>
-    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\qbMatrix_DeterminantTest.cpp">
-      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
     </ClCompile>
     <ClCompile Include="src\qbRayTrace\qbMaterials\materialbase.cpp">
       <Filter>qbRayTrace\qbMaterials</Filter>
@@ -157,5 +102,7 @@
     <ClCompile Include="src\qbRayTrace\scene.cpp">
       <Filter>qbRayTrace</Filter>
     </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbPrimatives\cone.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbPrimatives\cylinder.cpp" />
   </ItemGroup>
 </Project>

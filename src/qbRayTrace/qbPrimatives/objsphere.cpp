@@ -27,7 +27,7 @@ bool qbRT::ObjSphere::TestIntersection(const qbRT::Ray &castRay, qbVector<double
 
     qbVector<double> poi;
     if(intTest > 0.0) {
-        double numSQRT = sqrt(intTest);
+        double numSQRT = std::sqrtf(intTest);
         double t1 = (-b + numSQRT) / 2.0;
         double t2 = (-b - numSQRT) / 2.0;
 

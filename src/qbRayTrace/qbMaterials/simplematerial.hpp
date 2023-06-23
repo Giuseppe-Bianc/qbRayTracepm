@@ -1,30 +1,4 @@
-/* ***********************************************************
-    simplematerial.hpp
-
-    The SimpleMaterial class definition - A class for handling
-    materials.
-
-    This file forms part of the qbRayTrace project as described
-    in the series of videos on the QuantitativeBytes YouTube
-    channel.
-
-    This code corresponds specifically to Episode 7 of the series,
-    which may be found here:
-    https://youtu.be/F5vIgpRF_Qo
-
-    The whole series may be found on the QuantitativeBytes
-    YouTube channel at:
-    www.youtube.com/c/QuantitativeBytes
-
-    GPLv3 LICENSE
-    Copyright (c) 2021 Michael Bennett
-
-***********************************************************/
-
-// simplematerial.hpp
-
-#ifndef SIMPLEMATERIAL_H
-#define SIMPLEMATERIAL_H
+#pragma once
 
 #include "materialbase.hpp"
 
@@ -54,5 +28,3 @@ namespace qbRT {
         double m_shininess = 0.0;
     };
 }  // namespace qbRT
-
-#endif

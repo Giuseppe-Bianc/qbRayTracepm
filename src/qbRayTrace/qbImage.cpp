@@ -68,7 +68,6 @@ void qbImage::InitTexture() {
         SDL_DestroyTexture(m_pTexture);
     // Create the texture that will store the image.
     SDL_Surface *tempSurface = SDL_CreateRGBSurfaceWithFormat(0, m_xSize, m_ySize, 32, SDL_PIXELFORMAT_RGBA32);
-    // SDL_CreateRGBSurfaceWithFormat(0, m_xSize, m_ySize, 32, SDL_PIXELFORMAT_RGBA32));
     m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, tempSurface);
     SDL_FreeSurface(tempSurface);
 }

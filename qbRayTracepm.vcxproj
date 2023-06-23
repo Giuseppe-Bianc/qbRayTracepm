@@ -151,6 +151,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\CApp.h" />
+    <ClInclude Include="src\qbRayTrace\qbPrimatives\cone.hpp" />
+    <ClInclude Include="src\qbRayTrace\qbPrimatives\cylinder.hpp" />
     <ClInclude Include="src\Timer.h" />
     <ClInclude Include="src\headers.h" />
     <ClInclude Include="src\qbRayTrace\camera.hpp" />
@@ -176,6 +178,8 @@
     <ClCompile Include="src\qbRayTrace\qbLights\pointlight.cpp" />
     <ClCompile Include="src\qbRayTrace\qbMaterials\materialbase.cpp" />
     <ClCompile Include="src\qbRayTrace\qbMaterials\simplematerial.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbPrimatives\cone.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbPrimatives\cylinder.cpp" />
     <ClCompile Include="src\qbRayTrace\qbPrimatives\objectbase.cpp" />
     <ClCompile Include="src\qbRayTrace\qbPrimatives\objplane.cpp" />
     <ClCompile Include="src\qbRayTrace\qbPrimatives\objsphere.cpp" />
