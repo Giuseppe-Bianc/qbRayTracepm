@@ -1,4 +1,5 @@
 #include "objsphere.hpp"
+#define MIN
 
 // Function to test for intersections.
 bool qbRT::ObjSphere::TestIntersection(const qbRT::Ray &castRay, qbVector<double> &intPoint, qbVector<double> &localNormal,
@@ -36,18 +37,22 @@ bool qbRT::ObjSphere::TestIntersection(const qbRT::Ray &castRay, qbVector<double
             return false;
         } else {
             // Determine which point of intersection was closest to the camera.
+#ifdef MIN
+            poi = bckRay.m_point1 + (vhat * std::min(t1, t2));
+#else
             if(t1 < t2) {
                 poi = bckRay.m_point1 + (vhat * t1);
             } else {
                 poi = bckRay.m_point1 + (vhat * t2);
             }
+#endif  // MIN
 
             // Transform the intersection point back into world coordinates.
             intPoint = m_transformMatrix.Apply(poi, qbRT::FWDTFORM);
 
             // Compute the local normal (easy for a sphere at the origin!).
-            qbVector<double> objOrigin = qbVector<double>{std::vector<double>{0.0, 0.0, 0.0}};
-            qbVector<double> newObjOrigin = m_transformMatrix.Apply(objOrigin, qbRT::FWDTFORM);
+            auto objOrigin = qbVector<double>{{0.0, 0.0, 0.0}};
+            auto newObjOrigin = m_transformMatrix.Apply(objOrigin, qbRT::FWDTFORM);
             localNormal = intPoint - newObjOrigin;
             localNormal.Normalize();
 

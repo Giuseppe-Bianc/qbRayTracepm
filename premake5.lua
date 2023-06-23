@@ -7,10 +7,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 SDL2_DIR = "external/SDL"
 GLM_DIR = "external/glm"
 SPDLOG_DIR = "external/spdlog"
+--FMT_DIR = "external/fmt"
 
 
 IncludeDir = {
    spdlog = "%{SPDLOG_DIR}/include",
+   --fmt = "%{FMT_DIR}/include",
    SDL2 = "%{SDL2_DIR}/include"
 }
 
@@ -30,11 +32,12 @@ project "qbRayTracepm"
    targetdir "bin/%{cfg.buildcfg}"
    staticruntime "off"
 
-   files { "src/**.hpp", "src/**.cpp" }
+   files { "src/**.h","src/**.hpp", "src/**.cpp" }
 
    includedirs {
       "%{IncludeDir.SDL2}",
-      "%{IncludeDir.spdlog}"
+      "%{IncludeDir.spdlog}",
+--      "%{IncludeDir.fmt}"
    }
    links {
         "%{Library.SDL2}",

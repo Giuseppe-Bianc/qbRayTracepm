@@ -114,8 +114,7 @@ qbVector<double> qbRT::GTform::Apply(const qbVector<double> &inputVector, bool d
     }
 
     // Reform the output as a 3-element vector.
-    qbVector<double> outputVector{
-        std::vector<double>{resultVector.GetElement(0), resultVector.GetElement(1), resultVector.GetElement(2)}};
+    qbVector<double> outputVector{{resultVector.GetElement(0), resultVector.GetElement(1), resultVector.GetElement(2)}};
 
     return outputVector;
 }

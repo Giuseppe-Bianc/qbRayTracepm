@@ -1,5 +1,4 @@
 #include "qbImage.hpp"
-#include <fstream>
 
 // The destructor.
 qbImage::~qbImage() {
@@ -64,8 +63,6 @@ void qbImage::Display() {
 
 // Function to initialize the texture.
 void qbImage::InitTexture() {
-    // Initialize the texture.
-
     // Delete any previously created texture.
     if(m_pTexture != nullptr)
         SDL_DestroyTexture(m_pTexture);

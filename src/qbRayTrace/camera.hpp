@@ -37,7 +37,7 @@ namespace qbRT {
         inline qbVector<double> GetScreenCentre() const { return m_projectionScreenCentre; }
 
         // Function to generate a ray.
-        bool GenerateRay(float proScreenX, float proScreenY, qbRT::Ray &cameraRay) const;
+        bool GenerateRay(double proScreenX, double proScreenY, qbRT::Ray &cameraRay) const;
 
         // Function to update the camera geometry.
         void UpdateCameraGeometry();

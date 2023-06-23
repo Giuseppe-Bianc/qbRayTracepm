@@ -30,5 +30,5 @@ public:
 
 private:
     std::string_view message;
-    std::chrono::time_point<std::chrono::high_resolution_clock> startTimePoint;
+    inline static std::chrono::time_point<std::chrono::high_resolution_clock> startTimePoint;
 };

@@ -10,5 +10,12 @@ bool qbRT::ObjectBase::TestIntersection(const Ray &castRay, qbVector<double> &in
 
 void qbRT::ObjectBase::SetTransformMatrix(const qbRT::GTform &transformMatrix) { m_transformMatrix = transformMatrix; }
 
+// Function to assign a material.
+bool qbRT::ObjectBase::AssignMaterial(const std::shared_ptr<qbRT::MaterialBase> &objectMaterial) {
+    m_pMaterial = objectMaterial;
+    m_hasMaterial = true;
+    return m_hasMaterial;
+}
+
 // Function to test whether two floating-point numbers are close to being equal.
-bool qbRT::ObjectBase::CloseEnough(const double f1, const double f2) const { return fabs(f1 - f2) < EPSILON; }
+bool qbRT::ObjectBase::CloseEnough(const double f1, const double f2) const { return std::fabs(f1 - f2) < EPSILON; }

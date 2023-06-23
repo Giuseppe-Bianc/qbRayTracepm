@@ -2,9 +2,9 @@
 
 qbRT::Camera::Camera() {
     // The default constructor.
-    m_cameraPosition = qbVector<double>{std::vector<double>{0.0, -10.0, 0.0}};
-    m_cameraLookAt = qbVector<double>{std::vector<double>{0.0, 0.0, 0.0}};
-    m_cameraUp = qbVector<double>{std::vector<double>{0.0, 0.0, 1.0}};
+    m_cameraPosition = qbVector<double>{{0.0, -10.0, 0.0}};
+    m_cameraLookAt = qbVector<double>{{0.0, 0.0, 0.0}};
+    m_cameraUp = qbVector<double>{{0.0, 0.0, 1.0}};
     m_cameraLength = 1.0;
     m_cameraHorzSize = 1.0;
     m_cameraAspectRatio = 1.0;
@@ -30,7 +30,7 @@ void qbRT::Camera::UpdateCameraGeometry() {
     m_projectionScreenV = m_projectionScreenV * (m_cameraHorzSize / m_cameraAspectRatio);
 }
 
-bool qbRT::Camera::GenerateRay(float proScreenX, float proScreenY, qbRT::Ray &cameraRay) const {
+bool qbRT::Camera::GenerateRay(double proScreenX, double proScreenY, qbRT::Ray &cameraRay) const {
     // Compute the location of the screen point in world coordinates.
     qbVector<double> screenWorldPart1 = m_projectionScreenCentre + (m_projectionScreenU * proScreenX);
     qbVector<double> screenWorldCoordinate = screenWorldPart1 + (m_projectionScreenV * proScreenY);

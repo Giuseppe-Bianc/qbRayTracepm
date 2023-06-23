@@ -4,37 +4,91 @@
     <Filter Include="qbRayTrace">
       <UniqueIdentifier>{D3D1528E-BF89-94DB-2891-6D3714682FCC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="qbRayTrace\qbLights">
+      <UniqueIdentifier>{20E9649C-8C4A-42AA-15B8-885C81187969}</UniqueIdentifier>
+    </Filter>
     <Filter Include="qbRayTrace\qbLinAlg">
       <UniqueIdentifier>{CC18689C-387A-45AA-C1E7-8B5C2D487C69}</UniqueIdentifier>
     </Filter>
     <Filter Include="qbRayTrace\qbLinAlg\TestCode">
       <UniqueIdentifier>{164D36A3-0208-264F-ABBF-9E99975970DF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="qbRayTrace\qbMaterials">
+      <UniqueIdentifier>{3739B565-2333-DEB7-0CA0-74C8F8384424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="qbRayTrace\qbPrimatives">
+      <UniqueIdentifier>{F93BE1FE-6573-2996-6E7D-8DB9DA33508F}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\CApp.h" />
+    <ClInclude Include="src\Timer.h" />
+    <ClInclude Include="src\headers.h" />
     <ClInclude Include="src\qbRayTrace\camera.hpp">
       <Filter>qbRayTrace</Filter>
     </ClInclude>
     <ClInclude Include="src\qbRayTrace\gtfm.hpp">
       <Filter>qbRayTrace</Filter>
     </ClInclude>
-    <ClInclude Include="src\qbRayTrace\qbLights\lightbase.hpp">
-      <Filter>qbRayTrace</Filter>
-    </ClInclude>
-    <ClInclude Include="src\qbRayTrace\qbPrimatives\objectbase.hpp">
-      <Filter>qbRayTrace</Filter>
-    </ClInclude>
-    <ClInclude Include="src\qbRayTrace\qbPrimatives\objplane.hpp">
-      <Filter>qbRayTrace</Filter>
-    </ClInclude>
-    <ClInclude Include="src\qbRayTrace\qbPrimatives\objsphere.hpp">
-      <Filter>qbRayTrace</Filter>
-    </ClInclude>
-    <ClInclude Include="src\qbRayTrace\qbLights\pointlight.hpp">
-      <Filter>qbRayTrace</Filter>
-    </ClInclude>
     <ClInclude Include="src\qbRayTrace\qbImage.hpp">
       <Filter>qbRayTrace</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLights\lightbase.hpp">
+      <Filter>qbRayTrace\qbLights</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLights\pointlight.hpp">
+      <Filter>qbRayTrace\qbLights</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbEIG.h">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbLSQ.h">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbLinSolve.h">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbMatrix.h">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbMatrix33.hpp">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbMatrix44.hpp">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbPCA.h">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbQR.h">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbVector.h">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbVector2.hpp">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbVector3.hpp">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbLinAlg\qbVector4.hpp">
+      <Filter>qbRayTrace\qbLinAlg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbMaterials\materialbase.hpp">
+      <Filter>qbRayTrace\qbMaterials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbMaterials\simplematerial.hpp">
+      <Filter>qbRayTrace\qbMaterials</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbPrimatives\objectbase.hpp">
+      <Filter>qbRayTrace\qbPrimatives</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbPrimatives\objplane.hpp">
+      <Filter>qbRayTrace\qbPrimatives</Filter>
+    </ClInclude>
+    <ClInclude Include="src\qbRayTrace\qbPrimatives\objsphere.hpp">
+      <Filter>qbRayTrace\qbPrimatives</Filter>
     </ClInclude>
     <ClInclude Include="src\qbRayTrace\ray.hpp">
       <Filter>qbRayTrace</Filter>
@@ -42,9 +96,6 @@
     <ClInclude Include="src\qbRayTrace\scene.hpp">
       <Filter>qbRayTrace</Filter>
     </ClInclude>
-    <ClInclude Include="src\CApp.h" />
-    <ClInclude Include="src\headers.h" />
-    <ClInclude Include="src\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CApp.cpp" />
@@ -55,23 +106,50 @@
     <ClCompile Include="src\qbRayTrace\gtfm.cpp">
       <Filter>qbRayTrace</Filter>
     </ClCompile>
-    <ClCompile Include="src\qbRayTrace\qbLights\lightbase.cpp">
-      <Filter>qbRayTrace</Filter>
-    </ClCompile>
-    <ClCompile Include="src\qbRayTrace\qbPrimatives\objectbase.cpp">
-      <Filter>qbRayTrace</Filter>
-    </ClCompile>
-    <ClCompile Include="src\qbRayTrace\qbPrimatives\objplane.cpp">
-      <Filter>qbRayTrace</Filter>
-    </ClCompile>
-    <ClCompile Include="src\qbRayTrace\qbPrimatives\objsphere.cpp">
-      <Filter>qbRayTrace</Filter>
-    </ClCompile>
-    <ClCompile Include="src\qbRayTrace\qbLights\pointlight.cpp">
-      <Filter>qbRayTrace</Filter>
-    </ClCompile>
     <ClCompile Include="src\qbRayTrace\qbImage.cpp">
       <Filter>qbRayTrace</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLights\lightbase.cpp">
+      <Filter>qbRayTrace\qbLights</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLights\pointlight.cpp">
+      <Filter>qbRayTrace\qbLights</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbEIG.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbLSQ.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbLinearSolve.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbPCA.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\TestCode_qbQR.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\qbMatrixTest.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbLinAlg\TestCode\qbMatrix_DeterminantTest.cpp">
+      <Filter>qbRayTrace\qbLinAlg\TestCode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbMaterials\materialbase.cpp">
+      <Filter>qbRayTrace\qbMaterials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbMaterials\simplematerial.cpp">
+      <Filter>qbRayTrace\qbMaterials</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbPrimatives\objectbase.cpp">
+      <Filter>qbRayTrace\qbPrimatives</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbPrimatives\objplane.cpp">
+      <Filter>qbRayTrace\qbPrimatives</Filter>
+    </ClCompile>
+    <ClCompile Include="src\qbRayTrace\qbPrimatives\objsphere.cpp">
+      <Filter>qbRayTrace\qbPrimatives</Filter>
     </ClCompile>
     <ClCompile Include="src\qbRayTrace\ray.cpp">
       <Filter>qbRayTrace</Filter>

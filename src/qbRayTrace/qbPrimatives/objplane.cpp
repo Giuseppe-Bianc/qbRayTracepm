@@ -25,7 +25,7 @@ bool qbRT::ObjPlane::TestIntersection(const qbRT::Ray &castRay, qbVector<double>
 
             /* If the magnitude of both u and v is less than or equal to one
                 then we must be in the plane. */
-            if((abs(u) < 1.0) && (abs(v) < 1.0)) {
+            if((std::abs(u) < 1.0) && (std::abs(v) < 1.0)) {
                 // Compute the point of intersection.
                 qbVector<double> poi = bckRay.m_point1 + t * k;
 

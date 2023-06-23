@@ -2,7 +2,7 @@
 
 // Default constructor.
 qbRT::PointLight::PointLight() {
-    m_color = qbVector<double>{std::vector<double>{1.0, 1.0, 1.0}};
+    m_color = qbVector<double>{{1.0, 1.0, 1.0}};
     m_intensity = 1.0;
 }
 
@@ -26,7 +26,7 @@ bool qbRT::PointLight::ComputeIllumination(const qbVector<double> &intPoint, con
     qbVector<double> poiNormal{3};
     qbVector<double> poiColor{3};
     bool validInt = false;
-    for(auto sceneObject : objectList) {
+    for(const auto &sceneObject : objectList) {
         if(sceneObject != currentObject) {
             validInt = sceneObject->TestIntersection(lightRay, poi, poiNormal, poiColor);
         }
@@ -44,7 +44,7 @@ bool qbRT::PointLight::ComputeIllumination(const qbVector<double> &intPoint, con
     if(!validInt) {
         // Compute the angle between the local normal and the light ray.
         // Note that we assume that localNormal is a unit vector.
-        double angle = acos(qbVector<double>::dot(localNormal, lightDir));
+        double angle = std::acos(qbVector<double>::dot(localNormal, lightDir));
 
         // If the normal is pointing away from the light, then we have no illumination.
         if(angle > halfPi) {
