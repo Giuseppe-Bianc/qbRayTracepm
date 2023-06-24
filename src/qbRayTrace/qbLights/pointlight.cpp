@@ -31,8 +31,8 @@ bool qbRT::PointLight::ComputeIllumination(const qbVector<double> &intPoint, con
         if(sceneObject != currentObject) {
             validInt = sceneObject->TestIntersection(lightRay, poi, poiNormal, poiColor);
             if(validInt) {
-                double dist = (poi - startPoint).norm();
-                if(dist > lightDist)
+                // double dist = (poi - startPoint).norm();
+                if((poi - startPoint).norm() > lightDist)
                     validInt = false;
             }
         }

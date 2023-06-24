@@ -3,6 +3,7 @@
 #include "../qbLights/lightbase.hpp"
 #include "../qbLinAlg/qbVector.h"
 #include "../qbPrimatives/objectbase.hpp"
+#include "../qbTextures/texturebase.hpp"
 #include "../ray.hpp"
 
 namespace qbRT {
@@ -38,10 +39,18 @@ namespace qbRT {
                      qbVector<double> &closestIntPoint, qbVector<double> &closestLocalNormal,
                      qbVector<double> &closestLocalColor) const;
 
+        // Function to assign a texture.
+        void AssignTexture(const std::shared_ptr<qbRT::Texture::TextureBase> &inputTexture);
+
     public:
         // Counter for the number of relection rays.
         inline static int m_maxReflectionRays = 3;
         inline static int m_reflectionRayCount = 0;
+        // List of texures assigned to this material.
+        std::vector<std::shared_ptr<qbRT::Texture::TextureBase>> m_textureList;
+
+        // Flat to indicate whether at least one texture has been assigned.
+        bool m_hasTexture = false;
 
     private:
     };

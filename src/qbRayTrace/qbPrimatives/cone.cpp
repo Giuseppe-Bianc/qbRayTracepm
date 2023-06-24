@@ -104,7 +104,7 @@ bool qbRT::Cone::TestIntersection(const qbRT::Ray &castRay, qbVector<double> &in
         qbVector<double> globalOrigin = m_transformMatrix.Apply(localOrigin, qbRT::FWDTFORM);
         double tX = validPOI.GetElement(0);
         double tY = validPOI.GetElement(1);
-        double tZ = -std::sqrt(pow(tX, 2.0) + std::pow(tY, 2.0));
+        double tZ = -std::sqrt(std::pow(tX, 2.0) + std::pow(tY, 2.0));
         orgNormal.SetElement(0, tX);
         orgNormal.SetElement(1, tY);
         orgNormal.SetElement(2, tZ);
@@ -114,6 +114,15 @@ bool qbRT::Cone::TestIntersection(const qbRT::Ray &castRay, qbVector<double> &in
 
         // Return the base color.
         localColor = m_baseColor;
+
+        // Compute and store the (u,v) coordinates.
+        double x = validPOI.GetElement(0);
+        double y = validPOI.GetElement(1);
+        double z = validPOI.GetElement(2);
+        double u = atan2(y, x) / M_PI;
+        double v = (z * 2.0) + 1.0;
+        m_uvCoords.SetElement(0, u);
+        m_uvCoords.SetElement(1, v);
 
         return true;
     } else {
@@ -133,6 +142,13 @@ bool qbRT::Cone::TestIntersection(const qbRT::Ray &castRay, qbVector<double> &in
 
                 // Return the base color.
                 localColor = m_baseColor;
+
+                // Compute and store the (u,v) coordinates.
+                double x = validPOI.GetElement(0);
+                double y = validPOI.GetElement(1);
+                double z = validPOI.GetElement(2);
+                m_uvCoords.SetElement(0, x);
+                m_uvCoords.SetElement(1, y);
 
                 return true;
             } else {

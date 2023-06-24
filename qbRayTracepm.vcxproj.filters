@@ -62,6 +62,9 @@
     </ClInclude>
     <ClInclude Include="src\qbRayTrace\qbPrimatives\cone.hpp" />
     <ClInclude Include="src\qbRayTrace\qbPrimatives\cylinder.hpp" />
+    <ClInclude Include="src\qbRayTrace\qbTextures\checker.hpp" />
+    <ClInclude Include="src\qbRayTrace\qbTextures\flat.hpp" />
+    <ClInclude Include="src\qbRayTrace\qbTextures\texturebase.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CApp.cpp" />
@@ -104,5 +107,8 @@
     </ClCompile>
     <ClCompile Include="src\qbRayTrace\qbPrimatives\cone.cpp" />
     <ClCompile Include="src\qbRayTrace\qbPrimatives\cylinder.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbTextures\checker.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbTextures\flat.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbTextures\texturebase.cpp" />
   </ItemGroup>
 </Project>

@@ -23,7 +23,7 @@ namespace qbRT {
                                          const qbRT::Ray &cameraRay);
 
     public:
-        qbVector<double> m_baseColor{std::vector<double>{1.0, 0.0, 1.0}};
+        qbVector<double> m_baseColor{{1.0, 0.0, 1.0}};
         double m_reflectivity = 0.0;
         double m_shininess = 0.0;
     };

@@ -69,7 +69,7 @@ namespace qbRT {
 }  // namespace qbRT
 static inline constexpr double NO_COLOR = 0.0;
 static inline constexpr long NANOD = std::nano::den;
-static inline constexpr long double pi = 3.1415926535897932384626433832795028841971;
+static inline constexpr long double pi = 3.1415926535897932384626433832795028841971693993751L;
 static inline constexpr long double twoPi = 2 * pi;
 static inline constexpr long double halfPi = pi / 2;
 // Dimensioni della finestra

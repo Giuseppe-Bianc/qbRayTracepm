@@ -153,6 +153,9 @@
     <ClInclude Include="src\CApp.h" />
     <ClInclude Include="src\qbRayTrace\qbPrimatives\cone.hpp" />
     <ClInclude Include="src\qbRayTrace\qbPrimatives\cylinder.hpp" />
+    <ClInclude Include="src\qbRayTrace\qbTextures\checker.hpp" />
+    <ClInclude Include="src\qbRayTrace\qbTextures\flat.hpp" />
+    <ClInclude Include="src\qbRayTrace\qbTextures\texturebase.hpp" />
     <ClInclude Include="src\Timer.h" />
     <ClInclude Include="src\headers.h" />
     <ClInclude Include="src\qbRayTrace\camera.hpp" />
@@ -183,6 +186,9 @@
     <ClCompile Include="src\qbRayTrace\qbPrimatives\objectbase.cpp" />
     <ClCompile Include="src\qbRayTrace\qbPrimatives\objplane.cpp" />
     <ClCompile Include="src\qbRayTrace\qbPrimatives\objsphere.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbTextures\checker.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbTextures\flat.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbTextures\texturebase.cpp" />
     <ClCompile Include="src\qbRayTrace\ray.cpp" />
     <ClCompile Include="src\qbRayTrace\scene.cpp" />
   </ItemGroup>

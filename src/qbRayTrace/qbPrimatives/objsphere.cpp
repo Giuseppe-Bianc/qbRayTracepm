@@ -27,7 +27,7 @@ bool qbRT::ObjSphere::TestIntersection(const qbRT::Ray &castRay, qbVector<double
 
     qbVector<double> poi;
     if(intTest > 0.0) {
-        double numSQRT = std::sqrtf(intTest);
+        double numSQRT = std::sqrt(intTest);
         double t1 = (-b + numSQRT) / 2.0;
         double t2 = (-b - numSQRT) / 2.0;
 
@@ -58,6 +58,21 @@ bool qbRT::ObjSphere::TestIntersection(const qbRT::Ray &castRay, qbVector<double
 
             // Return the base color.
             localColor = m_baseColor;
+
+            // Compute and store (u,v) coordinates for possible later use.
+            double x = poi.GetElement(0);
+            double y = poi.GetElement(1);
+            double z = poi.GetElement(2);
+            double u = std::atan(std::sqrt(std::pow(x, 2.0) + std::pow(y, 2.0)) / z);
+            double v = std::atan(y / x);
+            if(x < 0)
+                v += pi;
+
+            u /= pi;
+            v /= pi;
+
+            m_uvCoords.SetElement(0, u);
+            m_uvCoords.SetElement(1, v);
         }
 
         return true;
