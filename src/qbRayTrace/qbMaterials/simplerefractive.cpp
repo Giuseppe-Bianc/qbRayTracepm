@@ -91,9 +91,8 @@ qbVector<double> qbRT::SimpleRefractive::ComputeTranslucency(const std::vector<s
             tempNormal2 = tempNormal2 * -1.0;
             c2 = -qbVector<double>::dot(tempNormal2, p2);
         }
-        qbVector<double> refractedVector2 = r2 * p2 +
-                                            (r2 * c2 - std::sqrtf(1.0 - std::pow(r2, 2.0) * (1.0 - std::pow(c2, 2.0)))) *
-                                                tempNormal2;
+        qbVector<double> refractedVector2 = r2 * p2 + (r2 * c2 - std::sqrt(1.0 - std::pow(r2, 2.0) * (1.0 - std::pow(c2, 2.0)))) *
+                                                          tempNormal2;
 
         // Compute the refracted ray.
         qbRT::Ray refractedRay2(newIntPoint + (refractedVector2 * 0.01), newIntPoint + refractedVector2);

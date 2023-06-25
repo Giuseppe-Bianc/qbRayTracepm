@@ -2,10 +2,7 @@
 #include "../headers.h"
 class qbImage {
 public:
-    // Constructor.
-    /* Note that we don't actually have to declare a default constructor. As we have no other constructors,
-        the compiler would take of this for us. However, we later went on to define another constructor, we would
-        also need to manually define the default constructor, so I always think it makes sense to just do it. */
+    // The constructor.
     explicit qbImage() = default;
 
     // The destructor.

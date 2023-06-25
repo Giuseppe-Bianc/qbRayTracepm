@@ -9,7 +9,7 @@ qbRT::Scene::Scene() {
     // **************************************************************************************
     // Configure the camera.
     // **************************************************************************************
-    m_camera.SetPosition({{2.0, -5.0, 0.25}});
+    m_camera.SetPosition({{3.0, -5.0, 0.25}});
     m_camera.SetLookAt({{0.0, 0.0, 0.0}});
     m_camera.SetUp({{0.0, 0.0, 1.0}});
     m_camera.SetHorzSize(1.0);
@@ -44,6 +44,7 @@ qbRT::Scene::Scene() {
     auto sphereMaterial = std::make_shared<qbRT::SimpleMaterial>();
     auto sphereMaterial2 = std::make_shared<qbRT::SimpleMaterial>();
     auto sphereMaterial3 = std::make_shared<qbRT::SimpleMaterial>();
+    auto coneMaterial = std::make_shared<qbRT::SimpleMaterial>();
     auto glassMaterial = std::make_shared<qbRT::SimpleRefractive>();
 
     // **************************************************************************************
@@ -71,11 +72,15 @@ qbRT::Scene::Scene() {
     sphereMaterial3->m_reflectivity = 0.8;
     sphereMaterial3->m_shininess = 32.0;
 
+    coneMaterial->m_baseColor = {{0.8, 0.8, 0.2}};
+    coneMaterial->m_reflectivity = 0.15;
+    coneMaterial->m_shininess = 32.0;
+
     glassMaterial->m_baseColor = {{0.7, 0.7, 0.2}};
     glassMaterial->m_reflectivity = 0.25;
     glassMaterial->m_shininess = 32.0;
-    glassMaterial->m_translucency = 0.75;
-    glassMaterial->m_ior = 1.333;
+    glassMaterial->m_translucency = 0.5;
+    glassMaterial->m_ior = 1.57;
 
     // **************************************************************************************
     // Create and setup objects.
@@ -86,7 +91,7 @@ qbRT::Scene::Scene() {
 
     // **************************************************************************************
     auto imagePlane = std::make_shared<qbRT::ObjPlane>();
-    imagePlane->SetTransformMatrix(qbRT::GTform{{{0.0, 5.0, -0.75}}, {{-pi / 2.0, 0.0, 0.0}}, {{1.75, 1.75, 1.0}}});
+    imagePlane->SetTransformMatrix(qbRT::GTform{{{2.0, 5.0, -0.75}}, {{-pi / 2.0, 0.0, 0.0}}, {{1.75, 1.75, 1.0}}});
     imagePlane->AssignMaterial(imageMaterial);
 
     // **************************************************************************************
@@ -105,9 +110,18 @@ qbRT::Scene::Scene() {
     sphere3->AssignMaterial(sphereMaterial3);
 
     // **************************************************************************************
-    auto sphere4 = std::make_shared<qbRT::ObjSphere>();
-    sphere4->SetTransformMatrix(qbRT::GTform{{{2.0, -1.25, 0.25}}, {{0.0, 0.0, 0.0}}, {{0.75, 0.75, 0.75}}});
-    sphere4->AssignMaterial(glassMaterial);
+    auto rmSphere = std::make_shared<qbRT::RM::Sphere>();
+    rmSphere->SetTransformMatrix(qbRT::GTform{{{0.0, 0.0, 0.0}}, {{0.0, 0.0, 0.0}}, {{1.0, 1.0, 1.0}}});
+    rmSphere->AssignMaterial(coneMaterial);
+
+    auto rmTorus = std::make_shared<qbRT::RM::Torus>();
+    rmTorus->SetRadii(0.7, 0.3);
+    rmTorus->SetTransformMatrix(qbRT::GTform{{{2.0, 0.0, 0.0}}, {{-pi / 2.0, 0.0, 0.0}}, {{1.0, 1.0, 1.0}}});
+    rmTorus->AssignMaterial(glassMaterial);
+
+    auto rmCube = std::make_shared<qbRT::RM::Cube>();
+    rmCube->SetTransformMatrix(qbRT::GTform{{{3.5, 0.0, 0.0}}, {{0.0, 0.0, -pi / 4.0}}, {{0.5, 0.5, 0.5}}});
+    rmCube->AssignMaterial(coneMaterial);
 
     // **************************************************************************************
     // Put the objects into the scene.
@@ -117,7 +131,9 @@ qbRT::Scene::Scene() {
     m_objectList.emplace_back(sphere);
     m_objectList.emplace_back(sphere2);
     m_objectList.emplace_back(sphere3);
-    m_objectList.emplace_back(sphere4);
+    m_objectList.emplace_back(rmSphere);
+    m_objectList.emplace_back(rmTorus);
+    m_objectList.emplace_back(rmCube);
 
     // **************************************************************************************
     // Construct and setup the lights.
@@ -159,6 +175,7 @@ bool qbRT::Scene::Render(qbImage &outputImage) const {
         for(int x = 0; x < xSize; ++x) {
             // Normalize the x and y coordinates.
             normX = (static_cast<double>(x) * xFact) - 1.0;
+
             // Generate the ray for this pixel.
             m_camera.GenerateRay(normX, normY, cameraRay);
 
@@ -190,6 +207,7 @@ bool qbRT::Scene::Render(qbImage &outputImage) const {
         }
     }
 
+    std::cout << std::endl;
     return true;
 }
 

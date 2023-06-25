@@ -10,6 +10,7 @@ namespace qbRT {
         // The default constructor.
         Camera();
 
+        // Functions to set camera parameters.
         void SetPosition(const qbVector<double> &newPosition) { m_cameraPosition = newPosition; }
         void SetLookAt(const qbVector<double> &newLookAt) { m_cameraLookAt = newLookAt; }
         void SetUp(const qbVector<double> &upVector) { m_cameraUp = upVector; }

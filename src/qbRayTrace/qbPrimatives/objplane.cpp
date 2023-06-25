@@ -1,8 +1,12 @@
 #include "objplane.hpp"
+#include "../qbutils.hpp"
 
 // The function to test for intersections.
 bool qbRT::ObjPlane::TestIntersection(const qbRT::Ray &castRay, qbVector<double> &intPoint, qbVector<double> &localNormal,
                                       qbVector<double> &localColor) {
+    if(!m_isVisible)
+        return false;
+
     // Copy the ray and apply the backwards transform.
     qbRT::Ray bckRay = m_transformMatrix.Apply(castRay, qbRT::BCKTFORM);
 
@@ -33,10 +37,13 @@ bool qbRT::ObjPlane::TestIntersection(const qbRT::Ray &castRay, qbVector<double>
                 intPoint = m_transformMatrix.Apply(poi, qbRT::FWDTFORM);
 
                 // Compute the local normal.
-                qbVector<double> localOrigin{{0.0, 0.0, 0.0}};
+                // qbVector<double> localOrigin{{0.0, 0.0, 0.0}};
+                // qbVector<double> globalOrigin = m_transformMatrix.Apply(localOrigin, qbRT::FWDTFORM);
+                // localNormal = m_transformMatrix.Apply(normalVector, qbRT::FWDTFORM) - globalOrigin;
+                // localNormal.Normalize();
+
                 qbVector<double> normalVector{{0.0, 0.0, -1.0}};
-                qbVector<double> globalOrigin = m_transformMatrix.Apply(localOrigin, qbRT::FWDTFORM);
-                localNormal = m_transformMatrix.Apply(normalVector, qbRT::FWDTFORM) - globalOrigin;
+                localNormal = m_transformMatrix.ApplyNorm(normalVector);
                 localNormal.Normalize();
 
                 // Return the base color.

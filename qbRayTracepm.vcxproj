@@ -152,12 +152,19 @@
   <ItemGroup>
     <ClInclude Include="src\CApp.h" />
     <ClInclude Include="src\qbRayTrace\qbMaterials\simplerefractive.hpp" />
+    <ClInclude Include="src\qbRayTrace\qbPrimatives\box.hpp" />
     <ClInclude Include="src\qbRayTrace\qbPrimatives\cone.hpp" />
     <ClInclude Include="src\qbRayTrace\qbPrimatives\cylinder.hpp" />
+    <ClInclude Include="src\qbRayTrace\qbRayMarch\cube.hpp" />
+    <ClInclude Include="src\qbRayTrace\qbRayMarch\raymarchbase.hpp" />
+    <ClInclude Include="src\qbRayTrace\qbRayMarch\sdfunc.hpp" />
+    <ClInclude Include="src\qbRayTrace\qbRayMarch\sphere.hpp" />
+    <ClInclude Include="src\qbRayTrace\qbRayMarch\torus.hpp" />
     <ClInclude Include="src\qbRayTrace\qbTextures\checker.hpp" />
     <ClInclude Include="src\qbRayTrace\qbTextures\flat.hpp" />
     <ClInclude Include="src\qbRayTrace\qbTextures\image.hpp" />
     <ClInclude Include="src\qbRayTrace\qbTextures\texturebase.hpp" />
+    <ClInclude Include="src\qbRayTrace\qbutils.hpp" />
     <ClInclude Include="src\Timer.h" />
     <ClInclude Include="src\headers.h" />
     <ClInclude Include="src\qbRayTrace\camera.hpp" />
@@ -184,15 +191,22 @@
     <ClCompile Include="src\qbRayTrace\qbMaterials\materialbase.cpp" />
     <ClCompile Include="src\qbRayTrace\qbMaterials\simplematerial.cpp" />
     <ClCompile Include="src\qbRayTrace\qbMaterials\simplerefractive.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbPrimatives\box.cpp" />
     <ClCompile Include="src\qbRayTrace\qbPrimatives\cone.cpp" />
     <ClCompile Include="src\qbRayTrace\qbPrimatives\cylinder.cpp" />
     <ClCompile Include="src\qbRayTrace\qbPrimatives\objectbase.cpp" />
     <ClCompile Include="src\qbRayTrace\qbPrimatives\objplane.cpp" />
     <ClCompile Include="src\qbRayTrace\qbPrimatives\objsphere.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbRayMarch\cube.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbRayMarch\raymarchbase.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbRayMarch\sdfunc.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbRayMarch\sphere.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbRayMarch\torus.cpp" />
     <ClCompile Include="src\qbRayTrace\qbTextures\checker.cpp" />
     <ClCompile Include="src\qbRayTrace\qbTextures\flat.cpp" />
     <ClCompile Include="src\qbRayTrace\qbTextures\image.cpp" />
     <ClCompile Include="src\qbRayTrace\qbTextures\texturebase.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbutils.cpp" />
     <ClCompile Include="src\qbRayTrace\ray.cpp" />
     <ClCompile Include="src\qbRayTrace\scene.cpp" />
   </ItemGroup>

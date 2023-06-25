@@ -10,6 +10,8 @@ bool qbRT::ObjectBase::TestIntersection(const Ray &castRay, qbVector<double> &in
 
 void qbRT::ObjectBase::SetTransformMatrix(const qbRT::GTform &transformMatrix) { m_transformMatrix = transformMatrix; }
 
+qbRT::GTform qbRT::ObjectBase::GetTransformMatrix() const { return m_transformMatrix; }
+
 // Function to assign a material.
 bool qbRT::ObjectBase::AssignMaterial(const std::shared_ptr<qbRT::MaterialBase> &objectMaterial) {
     m_pMaterial = objectMaterial;

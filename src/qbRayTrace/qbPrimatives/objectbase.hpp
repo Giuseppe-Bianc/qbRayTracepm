@@ -21,6 +21,7 @@ namespace qbRT {
 
         // Function to set the transform matrix.
         void SetTransformMatrix(const qbRT::GTform &transformMatrix);
+        qbRT::GTform GetTransformMatrix() const;
 
         // Function to test whether two floating-point numbers are close to being equal.
         bool CloseEnough(const double f1, const double f2) const;
@@ -30,6 +31,9 @@ namespace qbRT {
 
         // Public member variables.
     public:
+        // The user-defined tag for this object.
+        std::string m_tag;
+
         // The base colour of the object.
         qbVector<double> m_baseColor{3};
 
@@ -41,6 +45,9 @@ namespace qbRT {
 
         // A flag to indicate whether this object has a material or not.
         bool m_hasMaterial = false;
+
+        // A flag to indicate whether this object is visible.
+        bool m_isVisible = true;
 
         // Store the (u,v) coordinates from a detected intersection.
         qbVector<double> m_uvCoords{2};

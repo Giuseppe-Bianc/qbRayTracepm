@@ -1,4 +1,5 @@
 #include "gtfm.hpp"
+#include "qbutils.hpp"
 
 // Constructor / destructor.
 qbRT::GTform::GTform() {
@@ -6,6 +7,7 @@ qbRT::GTform::GTform() {
         identity matrices. */
     m_fwdtfm.SetToIdentity();
     m_bcktfm.SetToIdentity();
+    ExtractLinearTransform();
 }
 
 qbRT::GTform::~GTform() {}
@@ -13,6 +15,7 @@ qbRT::GTform::~GTform() {}
 // Construct from three vectors.
 qbRT::GTform::GTform(const qbVector<double> &translation, const qbVector<double> &rotation, const qbVector<double> &scale) {
     SetTransform(translation, rotation, scale);
+    ExtractLinearTransform();
 }
 
 // Construct from a pair of matrices.
@@ -24,6 +27,7 @@ qbRT::GTform::GTform(const qbMatrix2<double> &fwd, const qbMatrix2<double> &bck)
 
     m_fwdtfm = fwd;
     m_bcktfm = bck;
+    ExtractLinearTransform();
 }
 
 // Function to set the transform.
@@ -78,6 +82,12 @@ void qbRT::GTform::SetTransform(const qbVector<double> &translation, const qbVec
     m_bcktfm.Inverse();
 }
 
+void qbRT::GTform::SetTransform(const qbMatrix2<double> &fwd, const qbMatrix2<double> &bck) {
+    m_fwdtfm = fwd;
+    m_bcktfm = bck;
+    ExtractLinearTransform();
+}
+
 // Functions to return the transform matrices.
 qbMatrix2<double> qbRT::GTform::GetForward() { return m_fwdtfm; }
 qbMatrix2<double> qbRT::GTform::GetBackward() { return m_bcktfm; }
@@ -124,6 +134,12 @@ qbVector<double> qbRT::GTform::Apply(const qbVector<double> &inputVector, bool d
     return outputVector;
 }
 
+qbVector<double> qbRT::GTform::ApplyNorm(const qbVector<double> &inputVector) {
+    // Apply the transform and return the result.
+    qbVector<double> result = m_lintfm * inputVector;
+    return result;
+}
+
 // Overload operators.
 namespace qbRT {
     qbRT::GTform operator*(const qbRT::GTform &lhs, const qbRT::GTform &rhs) {
@@ -147,6 +163,7 @@ qbRT::GTform qbRT::GTform::operator=(const qbRT::GTform &rhs) {
     if(this != &rhs) {
         m_fwdtfm = rhs.m_fwdtfm;
         m_bcktfm = rhs.m_bcktfm;
+        ExtractLinearTransform();
     }
 
     return *this;
@@ -179,3 +196,20 @@ void qbRT::GTform::PrintVector(const qbVector<double> &inputVector) {
         std::cout << std::fixed << std::setprecision(3) << inputVector.GetElement(row) << std::endl;
     }
 }
+
+// Function to extract the linear portion of the transform.
+void qbRT::GTform::ExtractLinearTransform() {
+    // Copy the linear portion of the transform.
+    for(int i = 0; i < 3; ++i) {
+        for(int j = 0; j < 3; ++j) {
+            m_lintfm.SetElement(i, j, m_fwdtfm.GetElement(i, j));
+        }
+    }
+
+    // Invert and transpose.
+    m_lintfm.Inverse();
+    m_lintfm = m_lintfm.Transpose();
+}
+
+// Function to return the normal transform.
+qbMatrix2<double> qbRT::GTform::GetNormalTransform() { return m_lintfm; }

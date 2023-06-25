@@ -3,6 +3,9 @@
 // The function to test for intersections.
 bool qbRT::Cone::TestIntersection(const qbRT::Ray &castRay, qbVector<double> &intPoint, qbVector<double> &localNormal,
                                   qbVector<double> &localColor) {
+    if(!m_isVisible)
+        return false;
+
     // Copy the ray and apply the backwards transform.
     qbRT::Ray bckRay = m_transformMatrix.Apply(castRay, qbRT::BCKTFORM);
 
@@ -108,9 +111,16 @@ bool qbRT::Cone::TestIntersection(const qbRT::Ray &castRay, qbVector<double> &in
         orgNormal.SetElement(0, tX);
         orgNormal.SetElement(1, tY);
         orgNormal.SetElement(2, tZ);
-        newNormal = m_transformMatrix.Apply(orgNormal, qbRT::FWDTFORM) - globalOrigin;
-        newNormal.Normalize();
-        localNormal = newNormal;
+
+        // orgNormal.Normalize();
+        // qbVector<double> normalPoint = validPOI + orgNormal;
+        // newNormal = m_transformMatrix.Apply(orgNormal, qbRT::FWDTFORM) - globalOrigin;
+        // newNormal = m_transformMatrix.Apply(normalPoint, qbRT::FWDTFORM) - intPoint;
+        // newNormal.Normalize();
+        // localNormal = newNormal;
+
+        localNormal = m_transformMatrix.ApplyNorm(orgNormal);
+        localNormal.Normalize();
 
         // Return the base color.
         localColor = m_baseColor;
@@ -137,9 +147,12 @@ bool qbRT::Cone::TestIntersection(const qbRT::Ray &castRay, qbVector<double> &in
                 // Compute the local normal.
                 qbVector<double> localOrigin{{0.0, 0.0, 0.0}};
                 qbVector<double> normalVector{{0.0, 0.0, 1.0}};
-                qbVector<double> globalOrigin = m_transformMatrix.Apply(localOrigin, qbRT::FWDTFORM);
-                localNormal = m_transformMatrix.Apply(normalVector, qbRT::FWDTFORM) - globalOrigin;
+                localNormal = m_transformMatrix.ApplyNorm(normalVector);
                 localNormal.Normalize();
+
+                // qbVector<double> globalOrigin = m_transformMatrix.Apply(localOrigin, qbRT::FWDTFORM);
+                // localNormal = m_transformMatrix.Apply(normalVector, qbRT::FWDTFORM) - globalOrigin;
+                // localNormal.Normalize();
 
                 // Return the base color.
                 localColor = m_baseColor;
