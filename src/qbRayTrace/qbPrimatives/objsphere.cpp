@@ -1,5 +1,4 @@
 #include "objsphere.hpp"
-#define MIN
 
 // Function to test for intersections.
 bool qbRT::ObjSphere::TestIntersection(const qbRT::Ray &castRay, qbVector<double> &intPoint, qbVector<double> &localNormal,
@@ -33,19 +32,23 @@ bool qbRT::ObjSphere::TestIntersection(const qbRT::Ray &castRay, qbVector<double
 
         /* If either t1 or t2 are negative, then at least part of the object is
             behind the camera and so we will ignore it. */
-        if((t1 < 0.0) || (t2 < 0.0)) {
+        if((t1 < 0.0) && (t2 < 0.0)) {
             return false;
         } else {
             // Determine which point of intersection was closest to the camera.
-#ifdef MIN
-            poi = bckRay.m_point1 + (vhat * std::min(t1, t2));
-#else
             if(t1 < t2) {
-                poi = bckRay.m_point1 + (vhat * t1);
+                if(t1 > 0.0) {
+                    poi = bckRay.m_point1 + (vhat * t1);
+                } else {
+                    poi = (t2 > 0.0) ? bckRay.m_point1 + (vhat * t2) : false;
+                }
             } else {
-                poi = bckRay.m_point1 + (vhat * t2);
+                if(t2 > 0.0) {
+                    poi = bckRay.m_point1 + (vhat * t2);
+                } else {
+                    poi = (t1 > 0.0) ? bckRay.m_point1 + (vhat * t1) : false;
+                }
             }
-#endif  // MIN
 
             // Transform the intersection point back into world coordinates.
             intPoint = m_transformMatrix.Apply(poi, qbRT::FWDTFORM);
@@ -63,10 +66,13 @@ bool qbRT::ObjSphere::TestIntersection(const qbRT::Ray &castRay, qbVector<double
             double x = poi.GetElement(0);
             double y = poi.GetElement(1);
             double z = poi.GetElement(2);
-            double u = std::atan(std::sqrt(std::pow(x, 2.0) + std::pow(y, 2.0)) / z);
-            double v = std::atan(y / x);
-            if(x < 0)
-                v += pi;
+            double u = std::atan2(std::sqrt(std::pow(x, 2.0) + std::pow(y, 2.0)), z);
+            double v = std::atan2(y, x);
+
+            // double u = atan(sqrtf(pow(x, 2.0) + pow(y, 2.0)) / z);
+            // double v = atan(y/x);
+            // if (x < 0)
+            //	v += M_PI;
 
             u /= pi;
             v /= pi;

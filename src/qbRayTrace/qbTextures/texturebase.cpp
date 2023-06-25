@@ -14,13 +14,12 @@ void qbRT::Texture::TextureBase::SetTransform(const qbVector<double> &translatio
                                               const qbVector<double> &scale) {
     // Build the transform matrix.
     qbMatrix2<double> rotationMatrix = {
-        3, 3, std::vector<double>{cos(rotation), -sin(rotation), 0.0, sin(rotation), cos(rotation), 0.0, 0.0, 0.0, 1.0}};
+        3, 3, {std::cos(rotation), -std::sin(rotation), 0.0, std::sin(rotation), std::cos(rotation), 0.0, 0.0, 0.0, 1.0}};
 
-    qbMatrix2<double> scaleMatrix = {
-        3, 3, std::vector<double>{scale.GetElement(0), 0.0, 0.0, 0.0, scale.GetElement(1), 0.0, 0.0, 0.0, 1.0}};
+    qbMatrix2<double> scaleMatrix = {3, 3, {scale.GetElement(0), 0.0, 0.0, 0.0, scale.GetElement(1), 0.0, 0.0, 0.0, 1.0}};
 
     qbMatrix2<double> translationMatrix = {
-        3, 3, std::vector<double>{1.0, 0.0, translation.GetElement(0), 0.0, 1.0, translation.GetElement(1), 0.0, 0.0, 1.0}};
+        3, 3, {1.0, 0.0, translation.GetElement(0), 0.0, 1.0, translation.GetElement(1), 0.0, 0.0, 1.0}};
 
     // And combine to form the final transform matrix.
     m_transformMatrix = translationMatrix * rotationMatrix * scaleMatrix;

@@ -46,6 +46,11 @@ namespace qbRT {
         // Counter for the number of relection rays.
         inline static int m_maxReflectionRays = 3;
         inline static int m_reflectionRayCount = 0;
+
+        // The ambient lighting conditions.
+        inline static qbVector<double> m_ambientColor{{1.0, 1.0, 1.0}};
+        inline static double m_ambientIntensity = 0.2;
+
         // List of texures assigned to this material.
         std::vector<std::shared_ptr<qbRT::Texture::TextureBase>> m_textureList;
 

@@ -151,10 +151,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\CApp.h" />
+    <ClInclude Include="src\qbRayTrace\qbMaterials\simplerefractive.hpp" />
     <ClInclude Include="src\qbRayTrace\qbPrimatives\cone.hpp" />
     <ClInclude Include="src\qbRayTrace\qbPrimatives\cylinder.hpp" />
     <ClInclude Include="src\qbRayTrace\qbTextures\checker.hpp" />
     <ClInclude Include="src\qbRayTrace\qbTextures\flat.hpp" />
+    <ClInclude Include="src\qbRayTrace\qbTextures\image.hpp" />
     <ClInclude Include="src\qbRayTrace\qbTextures\texturebase.hpp" />
     <ClInclude Include="src\Timer.h" />
     <ClInclude Include="src\headers.h" />
@@ -181,6 +183,7 @@
     <ClCompile Include="src\qbRayTrace\qbLights\pointlight.cpp" />
     <ClCompile Include="src\qbRayTrace\qbMaterials\materialbase.cpp" />
     <ClCompile Include="src\qbRayTrace\qbMaterials\simplematerial.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbMaterials\simplerefractive.cpp" />
     <ClCompile Include="src\qbRayTrace\qbPrimatives\cone.cpp" />
     <ClCompile Include="src\qbRayTrace\qbPrimatives\cylinder.cpp" />
     <ClCompile Include="src\qbRayTrace\qbPrimatives\objectbase.cpp" />
@@ -188,6 +191,7 @@
     <ClCompile Include="src\qbRayTrace\qbPrimatives\objsphere.cpp" />
     <ClCompile Include="src\qbRayTrace\qbTextures\checker.cpp" />
     <ClCompile Include="src\qbRayTrace\qbTextures\flat.cpp" />
+    <ClCompile Include="src\qbRayTrace\qbTextures\image.cpp" />
     <ClCompile Include="src\qbRayTrace\qbTextures\texturebase.cpp" />
     <ClCompile Include="src\qbRayTrace\ray.cpp" />
     <ClCompile Include="src\qbRayTrace\scene.cpp" />

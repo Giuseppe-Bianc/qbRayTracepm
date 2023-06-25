@@ -65,7 +65,7 @@ qbVector<double> qbRT::SimpleMaterial::ComputeSpecular(const std::vector<std::sh
         qbVector<double> poiNormal{3};
         qbVector<double> poiColor{3};
         bool validInt = false;
-        for(auto sceneObject : objectList) {
+        for(const auto &sceneObject : objectList) {
             validInt = sceneObject->TestIntersection(lightRay, poi, poiNormal, poiColor);
             if(validInt)
                 break;

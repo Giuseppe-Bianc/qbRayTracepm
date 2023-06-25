@@ -132,7 +132,7 @@ bool qbRT::Cylinder::TestIntersection(const qbRT::Ray &castRay, qbVector<double>
         double x = validPOI.GetElement(0);
         double y = validPOI.GetElement(1);
         double z = validPOI.GetElement(2);
-        double u = atan2(y, x) / pi;
+        double u = std::atan2(y, x) / pi;
         double v = z;
         m_uvCoords.SetElement(0, u);
         m_uvCoords.SetElement(1, v);

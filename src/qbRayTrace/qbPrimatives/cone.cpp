@@ -119,8 +119,9 @@ bool qbRT::Cone::TestIntersection(const qbRT::Ray &castRay, qbVector<double> &in
         double x = validPOI.GetElement(0);
         double y = validPOI.GetElement(1);
         double z = validPOI.GetElement(2);
-        double u = atan2(y, x) / M_PI;
+        double u = std::atan2(y, x) / pi;
         double v = (z * 2.0) + 1.0;
+        // double v = (-z * 2.0) + 0.5;
         m_uvCoords.SetElement(0, u);
         m_uvCoords.SetElement(1, v);
 
